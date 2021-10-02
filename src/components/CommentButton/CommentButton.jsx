@@ -1,12 +1,12 @@
 import React,{useState,useContext} from 'react';
 import clsx from  'clsx';
 
-import {Card,Typography,CardHeader,CardContent,CardActions,Avatar,IconButton,Menu,MenuItem } from '@material-ui/core'
-import Modal from '@material-ui/core/Modal';
+import {Card,Typography,CardHeader,CardContent,CardActions,Avatar,IconButton,Menu,MenuItem } from '@mui/material'
+import Modal from '@mui/material/Modal';
 
-import ChatIcon from '@material-ui/icons/Chat';
+import ChatIcon from '@mui/icons-material/Chat';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 import CommentDialog from '../CommentDialog/CommentDialog'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'

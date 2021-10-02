@@ -4,12 +4,12 @@ import moment from 'moment';
 import { Link } from 'react-router-dom'
 
 
-import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar,IconButton,Menu,MenuItem } from '@material-ui/core'
+import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar,IconButton,Menu,MenuItem } from '@mui/material'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
-import ChatIcon from '@material-ui/icons/Chat';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ChatIcon from '@mui/icons-material/Chat';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import LikeButton from '../LikeButton/LikeButton'
 import CommentButton from '../CommentButton/CommentButton'

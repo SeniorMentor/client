@@ -2,11 +2,11 @@ import React,{useContext,useState} from 'react';
 import clsx from  'clsx';
 import axios from 'axios'
 
-import {Card,Typography,FormControl,TextField,Button } from '@material-ui/core'
+import {Card,Typography,FormControl,TextField,Button } from '@mui/material'
 
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@mui/material/IconButton';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import { makeStyles } from '@mui/styles';
 
 import UserContext from '../../context/context'
 

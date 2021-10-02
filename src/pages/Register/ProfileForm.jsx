@@ -3,9 +3,9 @@ import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 
 
-import {Typography,Grid,Box,TextField,Container,Button,Select,MenuItem,FormControl,InputLabel} from '@material-ui/core'
+import {Typography,Grid,Box,TextField,Container,Button,Select,MenuItem,FormControl,InputLabel} from '@mui/material'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 

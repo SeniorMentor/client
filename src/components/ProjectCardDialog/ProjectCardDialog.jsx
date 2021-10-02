@@ -1,13 +1,12 @@
 import React,{useState,useEffect,useContext} from 'react'
-import DateFnsUtils from '@date-io/date-fns';
 import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+  LocalizationProvider,
+  DatePicker
+} from '@mui/lab';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
-import { TextField,Grid,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField,Grid,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 
 import UserContext from '../../context/context'
@@ -171,8 +170,8 @@ export default function ProjectCardDialog(props) {
                 />
             </Grid>
           <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
           fullWidth
           margin="normal"
           name="startDate"
@@ -182,18 +181,18 @@ export default function ProjectCardDialog(props) {
           onChange={handlestartDateChange}
           KeyboardButtonProps={{
             'aria-label': 'change date',
-          }}
+          }}        
+          renderInput={props => <TextField label="Start Date" /> }
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>
             <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
           fullWidth
           margin="normal"
-          label="End Date"
           format="MM/dd/yyyy"
           name="endDate"
           value={endDate}
@@ -201,8 +200,9 @@ export default function ProjectCardDialog(props) {
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
+          renderInput={props => <TextField label="End Date" /> }
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>

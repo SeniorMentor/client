@@ -2,10 +2,10 @@ import React,{useContext,useState,useEffect} from 'react';
 import clsx from  'clsx';
 
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import {Card,Typography,CardHeader,CardContent,CardActions,Avatar,IconButton,Menu,MenuItem } from '@material-ui/core'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import {Card,Typography,CardHeader,CardContent,CardActions,Avatar,IconButton,Menu,MenuItem } from '@mui/material'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 

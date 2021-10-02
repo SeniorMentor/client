@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext} from 'react'
-import {Typography,Grid,Button,Chip,Paper,CardHeader,Avatar,CardContent,CardActions,Menu,MenuItem,IconButton} from '@material-ui/core'
+import {Typography,Grid,Button,Chip,Paper,CardHeader,Avatar,CardContent,CardActions,Menu,MenuItem,IconButton} from '@mui/material'
 import moment from 'moment';
 import clsx from 'clsx';
 
@@ -7,8 +7,8 @@ import clsx from 'clsx';
 import {Link} from 'react-router-dom'
 
 
-import { makeStyles } from '@material-ui/core/styles';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { makeStyles } from '@mui/styles';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import PostCard from '../../components/PostCard/PostCard';
 import LikeButton from '../../components/LikeButton/LikeButton'

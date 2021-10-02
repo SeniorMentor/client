@@ -1,7 +1,7 @@
 import React,{useContext,useState} from 'react';
 import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import {Card,CardActionArea ,CardActions,CardContent,CardMedia,Button,Typography } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import {Card,CardActionArea ,CardActions,CardContent,CardMedia,Button,Typography } from '@mui/material';
 import UserContext from '../../context/context';  
 
 import defaultUser from '../../assets/img/defaultUser.jpg'

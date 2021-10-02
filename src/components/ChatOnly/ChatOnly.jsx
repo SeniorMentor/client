@@ -1,14 +1,14 @@
 import React,{useState, useEffect, useContext} from 'react';
 import axios from 'axios'
 import {Link} from "react-router-dom"
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Box from '@material-ui/core/Box';
+import { makeStyles } from '@mui/styles';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Box from '@mui/material/Box';
 import Messages from "./Messages/Messages";
 import Input from "./Input/Input";
 import { SocketContext } from '../../context/socketContext' 

@@ -6,10 +6,10 @@ import UserContext from '../../context/context'
 import { SocketContext } from '../../context/socketContext' 
 import jwt_decode from "jwt-decode";
 import smgif from "../../assets/img/smgif.gif";
-import {Avatar,Button,TextField,Grid,Box,Typography,Container} from '@material-ui/core';
+import {Avatar,Button,TextField,Grid,Box,Typography,Container} from '@mui/material';
 
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { makeStyles } from '@material-ui/core/styles';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 

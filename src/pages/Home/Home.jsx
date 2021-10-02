@@ -2,8 +2,8 @@ import React,{useContext,useState,useEffect} from 'react';
 import axios from 'axios'
 
 import {Link} from 'react-router-dom'
-import Fab from '@material-ui/core/Fab';
-import CreateIcon from '@material-ui/icons/Create';
+import Fab from '@mui/material/Fab';
+import CreateIcon from '@mui/icons-material/Create';
 
 
 import PostForm from '../../components/PostForm/PostForm'
@@ -14,9 +14,9 @@ import PostWall from '../../components/PostWall/PostWall'
 
 
 
-import {Grid,TextField} from '@material-ui/core'
+import {Grid,TextField} from '@mui/material'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 
 

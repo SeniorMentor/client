@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 
-import { TextField,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 import UserContext from '../../context/context'
 import { useForm } from '../../utils/hook';

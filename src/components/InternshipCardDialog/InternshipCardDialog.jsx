@@ -1,14 +1,13 @@
 import React,{useState,useEffect,useContext} from 'react'
-import DateFnsUtils from '@date-io/date-fns';
 import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+  LocalizationProvider,
+  DatePicker,
+} from '@mui/lab';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
 
-import { TextField,Grid,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@material-ui/core';
-import {Typography,Box,Select,MenuItem,FormControl,InputLabel} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField,Grid,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@mui/material';
+import {Typography,Box,Select,MenuItem,FormControl,InputLabel} from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 import UserContext from '../../context/context'
 
@@ -164,8 +163,8 @@ const handleendDateChange = (date) => {
                 
             </Grid>
           <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
           fullWidth
           margin="normal"
           id="date-picker-dialog"
@@ -177,13 +176,13 @@ const handleendDateChange = (date) => {
             'aria-label': 'change date',
           }}
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>
             <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <KeyboardDatePicker
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
           fullWidth
           margin="normal"
           id="date-picker-dialog"
@@ -195,7 +194,7 @@ const handleendDateChange = (date) => {
             'aria-label': 'change date',
           }}
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>

@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {AppBar,Tabs,Tab,Divider,Typography,Button,Paper} from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
+import {AppBar,Tabs,Tab,Divider,Typography,Button,Paper} from '@mui/material';
 
 
 import InternshipCard from '../InternshipCard/InternshipCard'
@@ -11,7 +12,7 @@ import ProjectCardDialog from '../ProjectCardDialog/ProjectCardDialog'
 import InternshipCardDialog from '../InternshipCardDialog/InternshipCardDialog'
 
 
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 
 function TabPanel(props) {
   const classes = useStyles();

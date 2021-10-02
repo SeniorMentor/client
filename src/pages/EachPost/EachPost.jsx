@@ -1,11 +1,11 @@
 import React,{useState,useEffect,useContext} from 'react'
-import {Typography,Grid} from '@material-ui/core'
+import {Typography,Grid} from '@mui/material'
 import clsx from 'clsx';
 
 
 
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 import SeperatePostCard from '../../components/SeperatePostCard/SeperatePostCard';
 import CommentList from '../../components/CommentList/CommentList'

@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createMuiTheme,CssBaseline} from '@material-ui/core'
+import { CssBaseline } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { ThemeProvider } from "@material-ui/styles"
-
-const theme = createMuiTheme({
+const theme = createTheme({
   typography : {
     fontPrime : {
       fontFamily : '"Nunito"', //['"Nunito"','sans-serif'].join(','),
@@ -17,8 +16,10 @@ const theme = createMuiTheme({
     type: "dark",
     primary:{
       main: "#90caf9",
-    }
-    
+    },
+    secondary: {
+      main: '#edf2ff',
+    },
   },
   overrides: {
     MuiCssBaseline: {

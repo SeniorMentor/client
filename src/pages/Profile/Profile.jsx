@@ -1,12 +1,12 @@
 import React,{useEffect,useContext,useState} from 'react';
-import {Typography,Grid,Button,Chip,IconButton} from '@material-ui/core'
-import CreateIcon from '@material-ui/icons/Create';
+import {Typography,Grid,Button,Chip,IconButton} from '@mui/material'
+import CreateIcon from '@mui/icons-material/Create';
 import axios from 'axios'
 
 
 import defaultUser from '../../assets/img/defaultUser.jpg'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import UserContext from '../../context/context'
 
 import UserInfoMenu from '../../components/UserInfoMenu/UserInfoMenu'

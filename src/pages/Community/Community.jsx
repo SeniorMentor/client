@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 import axios from 'axios'
 
 
-import {Typography,Grid,Container,TextField,FormControl,InputLabel,Select,MenuItem} from '@material-ui/core'
+import {Typography,Grid,Container,TextField,FormControl,InputLabel,Select,MenuItem} from '@mui/material'
 
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 

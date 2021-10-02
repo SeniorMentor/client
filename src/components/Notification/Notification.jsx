@@ -1,18 +1,18 @@
 import React,{useEffect, useState, useContext} from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import {Paper} from '@material-ui/core'
+import {Paper} from '@mui/material'
 import UserContext from '../../context/context' 
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
-import { makeStyles } from '@material-ui/core/styles';
-import ListItemText from '@material-ui/core/ListItemText';
-import Grid from '@material-ui/core/Grid';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Box from '@material-ui/core/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import { makeStyles } from '@mui/styles';
+import ListItemText from '@mui/material/ListItemText';
+import Grid from '@mui/material/Grid';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import Box from '@mui/material/Box';
 
 
 const useStyles = makeStyles({

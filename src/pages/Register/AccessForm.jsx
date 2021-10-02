@@ -4,13 +4,13 @@ import smgif from "../../assets/img/smgif.gif";
 
 import clsx from 'clsx';
 
-import {Avatar,Button,TextField,CircularProgress,Box,Typography,Container} from '@material-ui/core';
+import {Avatar,Button,TextField,CircularProgress,Box,Typography,Container} from '@mui/material';
 
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
 
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { makeStyles } from '@material-ui/core/styles';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 

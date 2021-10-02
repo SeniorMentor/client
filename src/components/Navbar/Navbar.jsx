@@ -1,15 +1,15 @@
 import React,{useContext} from 'react';
 import clsx from 'clsx';
 
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-
-import {AppBar,Toolbar,List,Typography,ListItem,ListItemText,Drawer,Button} from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import { useTheme } from '@mui/material/styles';
+import {AppBar,Toolbar,List,Typography,ListItem,ListItemText,Drawer,Button} from '@mui/material';
 import { Link } from "react-router-dom"; 
 
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import UserContext from '../../context/context' 
 
