@@ -4,7 +4,8 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import Fab from '@material-ui/core/Fab';
 import CreateIcon from '@material-ui/icons/Create';
-
+import Intro from '../../pages/Intro/Intro'
+import { useHistory } from "react-router-dom";
 
 import PostForm from '../../components/PostForm/PostForm'
 import ActivityCard from '../../components/ActivityCard/ActivityCard'
@@ -42,11 +43,10 @@ const useStyles = makeStyles((theme) => ({
         },
   }
 
-    
-  
 }))
 
 export default function Home() {
+  const history = useHistory();
   const classes = useStyles();
   const { userData } = useContext(UserContext);
   const [posts,setPosts] = useState([])
@@ -68,36 +68,28 @@ export default function Home() {
   console.log(posts);
 
   return (
-    <div> 
-    <Grid container direction="row" spacing={3}>
-        <Grid item className={classes.leftContainer} lg={2}>
+    <div>
+        <Grid container direction="row" justifyContent="space-around" spacing={3}>
+          <Grid item className={classes.rightContainer} md={4} lg={2}>
+            <ActivityCard />
           </Grid>
-        <Grid item xs={12} md={8} lg={6}>
-          <Grid container direction="column" spacing={3}>
-            {userData.loggedIn && (
-              <Grid item>
-                <PostForm postCounter={postCounter} setPostCounter={setPostCounter} />
+          <Grid item xs={12} md={8} lg={6}>
+              <Grid container direction="column" spacing={3}>
+                  <Grid item>
+                    <PostForm postCounter={postCounter} setPostCounter={setPostCounter} />
+                  </Grid>
+                <PostWall posts={posts} />
               </Grid>
-            )}
-            <PostWall posts={posts} />
           </Grid>
-          
-        </Grid>
-        {userData.loggedIn &&(
-        <Grid item className={classes.rightContainer} md={4} lg={4}>
-          <ActivityCard />
-        </Grid>
-        )}
-      </Grid> 
-      {userData.loggedIn &&(
+          <Grid item className={classes.rightContainer} md={4} lg={3}>
+            <ActivityCard />
+          </Grid>
+        </Grid> 
         <Link to="/createPost">
-        <Fab className={classes.shortcut} color="primary" aria-label="add">
-          <CreateIcon />
-        </Fab>
-      </Link>
-      )}
-     
-        
-    </div>
+          <Fab className={classes.shortcut} color="primary" aria-label="add">
+            <CreateIcon />
+          </Fab>
+        </Link>
+      </div>
   );
 }
