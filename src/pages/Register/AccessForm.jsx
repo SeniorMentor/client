@@ -120,76 +120,73 @@ export default function AccessForm({nextStep,values,handleChange}) {
       };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        {/* <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar> */}
-        <Avatar alt="logo" variant="square" src={smgif} style={{ width:"15vh", height:"15vh", padding:"1px"}}/>
-        <Typography component="h1" variant="h3" className={classes.heading}>
-          Sign Up
-        </Typography>
-        {open && (<ErrorMessage open={open} setOpen={setOpen} message={message} />)}
-
-        <form className={classes.form}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
+    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+      <Grid item xs={6} md={4} lg={3}>
+        <div className={classes.paper}>
+          <Avatar alt="logo" variant="square" src={smgif} style={{ width:"15vh", height:"15vh", padding:"1px"}}/>
+          <Typography component="h1" variant="h3" className={classes.heading}>
+            Sign Up
+          </Typography>
+          {open && (<ErrorMessage open={open} setOpen={setOpen} message={message} />)}
+  
+          <form className={classes.form}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              type="email"
+              value={values.email}
+              onChange={handleChange}
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+              label="Password"
+              type="password"
+              id="password"
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword" 
+              value={values.confirmPassword}
+              onChange={handleChange}
+              label="Confirm Password"
+              type="password"
+              id="confirmpassword"
+            />
+            
+            <div className={classes.wrapper}>
+          <Button
+            variant="contained"
+            color="primary"
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-            label="Password"
-            type="password"
-            id="password"
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="confirmPassword" 
-            value={values.confirmPassword}
-            onChange={handleChange}
-            label="Confirm Password"
-            type="password"
-            id="confirmpassword"
-          />
-          
-          <div className={classes.wrapper}>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          type="submit"
-          disabled={loading}
-          className={classes.submit}
-          onClick={handleButtonClick}
-        >
-          Confirm
-        </Button>
-        {loading && <CircularProgress size={30} className={classes.buttonProgress} />}
-      </div>
-        </form>
-      </div>
-      <Box mt={8}>
-      </Box>
-    </Container>
+            type="submit"
+            disabled={loading}
+            className={classes.submit}
+            onClick={handleButtonClick}
+          >
+            Confirm
+          </Button>
+          {loading && <CircularProgress size={30} className={classes.buttonProgress} />}
+        </div>
+          </form>
+        </div>
+      </Grid>
+    </Grid>
   );
 }
 

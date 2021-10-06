@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-import {AppBar,Toolbar,List,Typography,ListItem,ListItemText,Drawer,Button} from '@material-ui/core';
+import {AppBar,Toolbar,List,Typography,ListItem,ListItemText,Drawer,Button, Box} from '@material-ui/core';
 import { Link } from "react-router-dom"; 
 
 import IconButton from '@material-ui/core/IconButton';
@@ -17,8 +17,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-  
-    display: 'flex'
+    display: 'flex',
   },
   appBar: {
     ...theme.typography.fontPrime,
@@ -47,10 +46,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
+    background: '#white',
     width: drawerWidth,
     flexShrink: 0,
   },
   drawerPaper: {
+    background: theme.palette.primary.main,
     width: drawerWidth,
   },
   drawerHeader: {
@@ -69,7 +70,12 @@ const useStyles = makeStyles((theme) => ({
       display:"none"
     },
   },
-  
+  button: {
+    margin: "0.5rem",
+    width: "6rem",
+    height: "2.8rem",
+    borderRadius:"10%"
+  }
  
 }));
 
@@ -97,17 +103,14 @@ export default function Navbar({open,setOpen}) {
 
   return (
     <div className={classes.root}>
-      <AppBar  elevation={0} color="inherit" position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open,})}>
+      <AppBar  elevation={0} color="primary" position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open,})}>
         <Toolbar>
-          <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap className={classes.heading}>
-            Seniormentor
-          </Typography>
-
-          
-
+            <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)}>
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap className={classes.heading}>
+              Seniormentor
+            </Typography>
         </Toolbar>
       </AppBar>
       <Drawer className={classes.drawer} variant="persistent" anchor="left" open={open} classes={{paper: classes.drawerPaper,}}>
@@ -116,8 +119,7 @@ export default function Navbar({open,setOpen}) {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        
-        <List >
+        <List>
             <ListItem button component={Link} to={'/'} key="0">
               <ListItemText primary="Home" />
             </ListItem>

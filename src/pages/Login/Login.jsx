@@ -88,68 +88,54 @@ export default function Login() {
   
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        {/* <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar> */}
-        <Avatar alt="logo" variant="square" src={smgif} style={{ width:"15vh", height:"15vh", padding:"1px"}}/>
-        <Typography component="h1" variant="h3" className={classes.heading}>
-          Sign in
-        </Typography>
-        {open && (<ErrorMessage open={open} setOpen={setOpen} message={message} />)}
-        <form className={classes.form} onSubmit={onSubmit}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            value={values.email}
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            onChange={onChange}
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            value={values.password}
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            onChange={onChange}
-            autoComplete="current-password"
-          />
-          
-          <Button
-            type="submit"
-            fullWidth
-            color="primary"
-            variant="contained"
-            className={classes.submit}
-          >
-            Submit
-          </Button>
-          <Grid container>
+    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+      <Grid item xs={6} md={4} lg={3}> 
+        <div className={classes.paper}>
+          <Avatar alt="logo" variant="square" src={smgif} style={{ width:"15vh", height:"15vh", padding:"1px"}}/>
+          <Typography component="h1" variant="h3" className={classes.heading}>
+            Sign in
+          </Typography>
+          {open && (<ErrorMessage open={open} setOpen={setOpen} message={message} />)}
+          <form className={classes.form} onSubmit={onSubmit}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              value={values.email}
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              onChange={onChange}
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              value={values.password}
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              onChange={onChange}
+              autoComplete="current-password"
+            />
             
-            <Grid item>
-            <Typography>
-              
-            </Typography>
-              
-
-              
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-      </Box>
-    </Container>
+            <Button
+              type="submit"
+              fullWidth
+              color="primary"
+              variant="contained"
+              className={classes.submit}
+            >
+              Submit
+            </Button>
+          </form>
+        </div>
+        </Grid>
+    </Grid>
   );
 }

@@ -101,94 +101,88 @@ export default function ProfileForm({prevStep,handleChange,handleSubmit,values})
   
 
   return (
-      <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-      <Typography component="h1" variant="h5">
-          Enter Personal Details
-        </Typography>
-      <form className={classes.form}>
-      <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="firstName"
-            label="First Name"
-            name="firstName"
-            autoFocus
-            value={values.firstName}
-            onChange={handleChange}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="lastName"
-            label="Last Name"
-            id="lastName"
-            autoComplete="current-password"
-            value={values.lastName}
-            onChange={handleChange}
+    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+      <Grid item xs={6} md={4} lg={3}> 
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h5">
+              Enter Personal Details
+          </Typography>
+          <form className={classes.form}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="firstName"
+              label="First Name"
+              name="firstName"
+              autoFocus
+              value={values.firstName}
+              onChange={handleChange}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="lastName"
+              label="Last Name"
+              id="lastName"
+              autoComplete="current-password"
+              value={values.lastName}
+              onChange={handleChange}
 
-          />
-          <Grid container spacing={3}>
-          <Grid item xs={12} sm={12}>
-          <FormControl fullWidth variant="outlined" className={classes.formControl1}>
-            <InputLabel id="demo-simple-select-outlined-label">Branch</InputLabel>
-                <Select  
-                name="branch"           
-                value={values.branch}
-                labelId="demo-simple-select-filled-label"
-                id="demo-simple-select-filled"
-                onChange={handleChange}
-
-                >
-                    <MenuItem value="Computer Engineering">Computer Engineering</MenuItem>
-                    <MenuItem value="Electronics Engineering">Electronics Engineering</MenuItem>
-                    <MenuItem value="Production Engineering">Production Engineering</MenuItem>
-                    <MenuItem value="Information Technology">Information Technology</MenuItem>
-                </Select>
-            </FormControl>
-              
-            </Grid>
+            />
+            <Grid container spacing={3}>
             <Grid item xs={12} sm={12}>
-            <FormControl fullWidth variant="outlined" className={classes.formControl2}>
-            <InputLabel id="demo-simple-select-outlined-label">Year</InputLabel>
-                <Select
-                name="year"           
-                value={values.year}
-                labelId="demo-simple-select-filled-label"
-                id="demo-simple-select-filled"
-                onChange={handleChange}
+            <FormControl fullWidth variant="outlined" className={classes.formControl1}>
+              <InputLabel id="demo-simple-select-outlined-label">Branch</InputLabel>
+                  <Select  
+                  name="branch"           
+                  value={values.branch}
+                  labelId="demo-simple-select-filled-label"
+                  id="demo-simple-select-filled"
+                  onChange={handleChange}
 
-                >
-                    <MenuItem value="1">First year</MenuItem>
-                    <MenuItem value="2">Second Year</MenuItem>
-                    <MenuItem value="3">Third Year</MenuItem>
-                    <MenuItem value="4">Fourth Year</MenuItem>
-                </Select>
-            </FormControl>
+                  >
+                      <MenuItem value="Computer Engineering">Computer Engineering</MenuItem>
+                      <MenuItem value="Electronics Engineering">Electronics Engineering</MenuItem>
+                      <MenuItem value="Production Engineering">Production Engineering</MenuItem>
+                      <MenuItem value="Information Technology">Information Technology</MenuItem>
+                  </Select>
+              </FormControl>
+                
+              </Grid>
+              <Grid item xs={12} sm={12}>
+              <FormControl fullWidth variant="outlined" className={classes.formControl2}>
+              <InputLabel id="demo-simple-select-outlined-label">Year</InputLabel>
+                  <Select
+                  name="year"           
+                  value={values.year}
+                  labelId="demo-simple-select-filled-label"
+                  id="demo-simple-select-filled"
+                  onChange={handleChange}
+
+                  >
+                      <MenuItem value="1">First year</MenuItem>
+                      <MenuItem value="2">Second Year</MenuItem>
+                      <MenuItem value="3">Third Year</MenuItem>
+                      <MenuItem value="4">Fourth Year</MenuItem>
+                  </Select>
+              </FormControl>
+              </Grid>
+            
+            <Grid item xs={12} sm={6}>
+            <Button fullWidth onClick={()=>prevStep()} variant="contained" color="primary">Back</Button>
             </Grid>
-          
-          <Grid item xs={12} sm={6}>
-          <Button fullWidth onClick={()=>prevStep()} variant="contained" color="primary">Back</Button>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-          <Button fullWidth type="submit" variant="contained" color="primary" onClick={handleButtonClick}> Submit</Button>
-          </Grid>
-          </Grid>
+            <Grid item xs={12} sm={6}>
+            <Button fullWidth type="submit" variant="contained" color="primary" onClick={handleButtonClick}> Submit</Button>
+            </Grid>
+            </Grid>
 
           </form>
-          </div>
-      <Box mt={8}>
-      </Box>
-    </Container>
-        
-
-        
-        
-
-
+        </div>
+      </Grid>
+    </Grid>
   );
 }

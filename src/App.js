@@ -1,5 +1,6 @@
 import './App.css';
 import React,{useState,useEffect} from 'react'
+import { useHistory } from "react-router-dom";
 import clsx from 'clsx';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import UserContext from './context/context';
@@ -15,11 +16,11 @@ import MobilePostForm from './pages/MobilePostForm/MobilePostForm'
 import Chat from './pages/Chat/Chat' 
 import ChatPersonal from './pages/ChatPersonal/ChatPersonal' 
 import EachPost from './pages/EachPost/EachPost'
-
+import Intro from './pages/Intro/Intro'
 import jwt_decode from "jwt-decode";
 
 import { makeStyles } from '@material-ui/core/styles';
-import {Container} from '@material-ui/core'
+import { Container, Grid, Avatar } from '@material-ui/core'
 
 
 const drawerWidth = 240;
@@ -66,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
-
   const [open,setOpen]=useState(false)
   const [userData, setUserData] = useState({
     token: undefined,
@@ -98,44 +98,29 @@ function App() {
     checkLoggedIn();
   }, []);
   return (
-    <Container>
-
     <div className={classes.root}>
     <Router>
     <UserContext.Provider value={{ userData, setUserData }}>
-    <SocketContext.Provider value={socket}>
-      <Navbar open={open} setOpen={setOpen}/>
-      <div className={clsx(classes.content, {[classes.contentShift]: open})}>
-        <Route exact path="/" component={Home} />
+      <SocketContext.Provider value={socket}>
+        { userData.loggedIn && <Navbar open={open} setOpen={setOpen}/> }
+        <div className={clsx(classes.content, {[classes.contentShift]: open })}>
+          { userData.loggedIn && <Route exact path="/" component={Home} />}
+          <Route exact path="/chat" component={Chat} />
+          <Route exact path="/chat/pc/:groupName" component={ChatPersonal} /> {/* Personal chat*/}
+          <Route exact path="/community" component={Community} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile/view/:id" component={Profile} />
+          <Route exact path="/notifications" component={NotificationPage} />
+          <Route exact path="/createPost" component={MobilePostForm} />
+          <Route exact path="/post/:id" component={EachPost} />
+        </div>
+        {!userData.loggedIn && <Route exact path="/" component={Intro} />}
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/chat" component={Chat} />
-        <Route exact path="/chat/pc/:groupName" component={ChatPersonal} /> {/* Personal chat*/}
-        <Route exact path="/community" component={Community} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/profile/view/:id" component={Profile} />
-        <Route exact path="/notifications" component={NotificationPage} />
-        <Route exact path="/createPost" component={MobilePostForm} />
-        <Route exact path="/post/:id" component={EachPost} />
-
-
-
-        
-        
-      </div>
-      </SocketContext.Provider>
+        </SocketContext.Provider>
       </UserContext.Provider>
-
-      
-
       </Router>
-      
-    
   </div>
-  </Container>
-  
-
-
   );
 }
 

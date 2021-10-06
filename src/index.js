@@ -3,22 +3,63 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createMuiTheme,CssBaseline} from '@material-ui/core'
-
+import { CssBaseline } from '@material-ui/core'
+import { amber, grey, deepOrange, purple } from '@material-ui/core/colors'
+import { createTheme } from "@material-ui/core/styles"
 import { ThemeProvider } from "@material-ui/styles"
+// Pallete: https://imagecolorpicker.com/user/shared-palette?id=02678879-f013-4ad9-bee8-1a132a12fe9b
 
-const theme = createMuiTheme({
+const getDesignTokens = (mode) => ({
+  palette: {
+    mode,
+    ...(mode === 'light'
+      ? {
+          // palette values for light mode
+          primary: amber,
+          divider: amber[200],
+          text: {
+            primary: grey[900],
+            secondary: grey[800],
+          },
+        }
+      : {
+          // palette values for dark mode
+          primary: {
+            main : '#8a9afb',
+            dark : '#606baf'
+          },
+          secondary : {
+            main : '#d500f9',
+            dark : '#9500ae'
+          },
+          divider: '#4a0072',
+          background: {
+            default: '#white',
+            paper: grey[100],
+          },
+          text: {
+            primary: '#black',
+            secondary: grey[500],
+          },
+        }),
+  },
+});
+
+const theme = createTheme({
+  ...getDesignTokens('dark'),
   typography : {
     fontPrime : {
       fontFamily : '"Nunito"', //['"Nunito"','sans-serif'].join(','),
-    }
+    },
   },
-  palette: {
-    type: "dark",
-    primary:{
-      main: "#90caf9",
-    }
-    
+  heading : {
+    fontFamily : "Nunito",
+    fontSize : "5rem",
+    fontWeight : "600",
+    color: '#8a9afb'
+  },
+  subheading : {
+    fontSize : "2rem"
   },
   overrides: {
     MuiCssBaseline: {
