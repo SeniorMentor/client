@@ -65,7 +65,7 @@ export default function Home() {
     })
   }, [postCounter])
 
-  console.log(posts);
+  console.log("Posts rendered");
 
   return (
     <div>
