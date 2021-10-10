@@ -34,7 +34,7 @@ const getDesignTokens = (mode) => ({
           },
           divider: '#4a0072',
           background: {
-            default: '#white',
+            default: '#FFF',
             paper: grey[100],
           },
           text: {
@@ -54,12 +54,12 @@ const theme = createTheme({
   },
   heading : {
     fontFamily : "Nunito",
-    fontSize : "5rem",
+    fontSize : "4rem",
     fontWeight : "600",
-    color: '#8a9afb'
+    color: '#FFF'
   },
   subheading : {
-    fontSize : "2rem"
+    fontSize : "1.5rem"
   },
   overrides: {
     MuiCssBaseline: {
@@ -78,6 +78,7 @@ const theme = createTheme({
     }
   }
 });
+
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />

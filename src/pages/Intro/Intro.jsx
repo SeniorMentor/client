@@ -37,7 +37,7 @@ export default function Intro() {
     const theme = useTheme();
     const classes = useStyles();
     const [index,setIndex] = useState(0);
-    const [phase,setPhase] = useState(0);
+    const [phase,setPhase] = useState(false);
 
     useEffect(() => {
         console.log("called");
@@ -55,13 +55,13 @@ export default function Intro() {
     // Similar component : https://codesandbox.io/s/material-demo-forked-vcryv?file=/demo.js
     return (
       <Grid container height="100vh" width="100%">
-        <Grid container direction="column" justify="center" align="center" item xs={6}  style={{background: "#1c1473"}}> 
+        <Grid container direction="column" justifyContent="center" align="center" item xs={12} sm={6}  style={{background: "#1c1473"}}> 
             <Box height="50vh">
                 <Box height="25vh" fontFamily="Nunito">
-                  <Typography className={classes.heading} color="#white">
+                  <Typography className={classes.heading}>
                       SENIORMENTOR
                   </Typography>
-                  <Zoom in={phase} out={!phase}>
+                  <Zoom in={phase} out={(!phase).toString()}>
                     <Typography className={classes.subheading}>
                       {phase && data[index]}
                     </Typography>
@@ -73,7 +73,7 @@ export default function Intro() {
                 </Box>
             </Box>
         </Grid>
-        <Grid item xs={6} style={{background: "#1c1473"}}>
+        <Grid item sm={6} style={{background: "#1c1473"}}>
         <Avatar variant="square" alt="logo" src={sm_graphic_1} style={{ width:"100%", height:"100vh", padding:"1px"}}/>
         </Grid>
       </Grid>
