@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import smgif from "../../assets/img/smgif.gif";
 
-import {Avatar,Button,TextField,CircularProgress,Typography} from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import {Avatar,Button,TextField,CircularProgress,Typography} from '@mui/material';
+import Grid from '@mui/material/Grid';
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 

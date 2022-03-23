@@ -2,11 +2,11 @@ import React,{useState, useEffect, useContext} from 'react';
 import axios from 'axios'
 import {Link} from "react-router-dom"
 
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Box from '@material-ui/core/Box';
+import { makeStyles } from '@mui/styles';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Box from '@mui/material/Box';
 
 import Messages from "../ChatOnly/Messages/Messages";
 import Input from "../ChatOnly/Input/Input";

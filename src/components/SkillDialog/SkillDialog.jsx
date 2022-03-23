@@ -2,8 +2,8 @@ import React,{useState,useEffect,useContext} from 'react'
 import axios from 'axios'
 
 import UserContext from '../../context/context'
-import { TextField,Chip,Grid,Button,Dialog,DialogContent,DialogActions} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField,Chip,Grid,Button,Dialog,DialogContent,DialogActions} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   

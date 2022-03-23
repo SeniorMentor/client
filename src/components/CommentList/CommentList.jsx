@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
-import {Typography,Paper,CardHeader,Avatar,CardContent,IconButton} from '@material-ui/core'
+import {Typography,Paper,CardHeader,Avatar,CardContent,IconButton} from '@mui/material'
 import moment from 'moment';
 import clsx from 'clsx';
 
-import { makeStyles } from '@material-ui/core/styles';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { makeStyles } from '@mui/styles';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const useStyles = makeStyles({
     root:{

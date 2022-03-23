@@ -1,7 +1,7 @@
 import React,{useState,useContext} from 'react';
 
-import {Typography,IconButton} from '@material-ui/core'
-import ChatIcon from '@material-ui/icons/Chat';
+import {Typography,IconButton} from '@mui/material'
+import ChatIcon from '@mui/icons-material/Chat';
 
 import CommentDialog from '../CommentDialog/CommentDialog'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'

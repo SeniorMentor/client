@@ -6,8 +6,8 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { TextField,Grid,Button,Dialog,DialogContent,DialogActions} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField,Grid,Button,Dialog,DialogContent,DialogActions} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 
 import UserContext from '../../context/context'

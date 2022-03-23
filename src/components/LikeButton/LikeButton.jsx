@@ -1,9 +1,9 @@
 import React,{useContext,useState,useEffect} from 'react';
 import axios from 'axios'
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import {Typography,IconButton } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import {Typography,IconButton } from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import UserContext from '../../context/context'

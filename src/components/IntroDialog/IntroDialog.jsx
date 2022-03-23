@@ -1,8 +1,8 @@
 import React,{useState,useEffect,useContext} from 'react'
 
-import { TextField,Grid,Button,Dialog,DialogContent,DialogActions } from '@material-ui/core';
-import { Select,MenuItem,FormControl,InputLabel } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField,Grid,Button,Dialog,DialogContent,DialogActions } from '@mui/material';
+import { Select,MenuItem,FormControl,InputLabel } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import UserContext from '../../context/context';
 
 import axios from 'axios';

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-import {Button,Paper} from '@material-ui/core'
+import {Button,Paper} from '@mui/material'
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 import LikesDialog from '../LikesDialog/LikesDialog'
 

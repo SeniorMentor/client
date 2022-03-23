@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Card,CardHeader,CardActions,Button,Divider} from '@material-ui/core'
+import {Card,CardHeader,CardActions,Button,Divider} from '@mui/material'
 import {Link} from 'react-router-dom'
 
 import useStyles from './styles';

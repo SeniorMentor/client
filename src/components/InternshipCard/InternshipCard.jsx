@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 
-import {Paper,Typography} from '@material-ui/core'
+import {Paper,Typography} from '@mui/material'
 import useStyles from './styles';
-import IconButton from '@material-ui/core/IconButton';
-import CreateIcon from '@material-ui/icons/Create';
+import IconButton from '@mui/material/IconButton';
+import CreateIcon from '@mui/icons-material/Create';
 
 import InternshipCardDialog from '../InternshipCardDialog/InternshipCardDialog'
 

@@ -19,7 +19,7 @@ import ChatPersonal from './pages/ChatPersonal/ChatPersonal'
 import EachPost from './pages/EachPost/EachPost'
 import Intro from './pages/Intro/Intro'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 
 const drawerWidth = 240;

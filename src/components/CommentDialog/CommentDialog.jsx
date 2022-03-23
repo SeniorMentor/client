@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import axios from 'axios'
 
-import { TextField,Button,Dialog, DialogTitle,DialogContent,DialogActions} from '@material-ui/core';
+import { TextField,Button,Dialog, DialogTitle,DialogContent,DialogActions} from '@mui/material';
 
 import UserContext from '../../context/context'
 import { useForm } from '../../utils/hook';

@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CssBaseline } from '@material-ui/core'
-import { amber, grey } from '@material-ui/core/colors'
-import { createTheme } from "@material-ui/core/styles"
+import { CssBaseline } from '@mui/material'
+import { amber, grey } from '@mui/material/colors'
+import { createTheme } from "@mui/material/styles"
 import { ThemeProvider } from "@material-ui/styles"
 // Pallete: https://imagecolorpicker.com/user/shared-palette?id=02678879-f013-4ad9-bee8-1a132a12fe9b
 

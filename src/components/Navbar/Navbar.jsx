@@ -2,11 +2,12 @@ import React,{useContext} from 'react';
 import { Link } from "react-router-dom"; 
 import clsx from 'clsx';
 
-import { makeStyles, useTheme, alpha } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles'
+import { useTheme, alpha } from '@mui/material/styles';
 import {
   AppBar,Toolbar,List,Typography,ListItem,ListItemText,
   Drawer, Box, IconButton, InputBase
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   Search as SearchIcon,
   ChevronLeft as ChevronLeftIcon,
@@ -14,8 +15,8 @@ import {
   Menu as MenuIcon,
   Notifications as NotificationsIcon,
   AccountCircle
-} from '@material-ui/icons'
-import Badge from '@material-ui/core/Badge';
+} from '@mui/icons-material'
+import Badge from '@mui/material/Badge';
 
 import UserContext from '../../context/context' 
 

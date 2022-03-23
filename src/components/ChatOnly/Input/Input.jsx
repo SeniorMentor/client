@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import SendIcon from '@material-ui/icons/Send';
-import Box from '@material-ui/core/Box';
+import { makeStyles } from '@mui/styles';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import Box from '@mui/material/Box';
 
 const useStyles = makeStyles((theme) => ({
   root: {
