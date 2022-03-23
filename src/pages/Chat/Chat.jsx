@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     chatRight : {
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('lg')]: {
         display:"none"
       },
     }

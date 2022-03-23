@@ -41,51 +41,53 @@ export default function ProjectCard({editflag,changeflag,setChangeflag,data}) {
   const startdate = new Date(data.startDate)
   const enddate = new Date(data.endDate)
 
-  return (
-    <>
-    <Paper elevation={0}  className={classes.root}>
+  return <>
+  <Paper elevation={0}  className={classes.root}>
+    
+    <Card  variant="outlined">
+      <CardContent>
+      <Typography className={classes.title} color="textSecondary" gutterBottom>
+        Project Title
+      </Typography>
+      <Typography variant="h5" component="h2">
+        {data.title}
+      </Typography>
+      <Typography className={classes.pos} color="textSecondary">
+        Description
+      </Typography>
+      <Typography  component="p">
+        {data.description}
+      </Typography>
+      <Typography className={classes.pos} color="textSecondary">
+        Start Date
+      </Typography>
+      <Typography  component="p">
+          {startdate.toLocaleDateString()}
+      </Typography>
+      <Typography className={classes.pos} color="textSecondary">
+        End Date
+      </Typography>
+      <Typography  component="p">
+          {enddate.toLocaleDateString()}
+      </Typography>
+    </CardContent>
+    </Card>
+      {editflag && (
+        <>
+       
+      <IconButton
+        aria-label="edit"
+        className={classes.margin}
+        onClick={handleProjectDialogOpen}
+        size="large">
+        <CreateIcon />
+      </IconButton>
+      </>
+      )}
+
+      <ProjectCardDialog open={projectOpen} onClose={handleProjectDialogClose} changeflag={changeflag} setChangeflag={setChangeflag} data={data}/>
+
       
-      <Card  variant="outlined">
-        <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Project Title
-        </Typography>
-        <Typography variant="h5" component="h2">
-          {data.title}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Description
-        </Typography>
-        <Typography  component="p">
-          {data.description}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          Start Date
-        </Typography>
-        <Typography  component="p">
-            {startdate.toLocaleDateString()}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          End Date
-        </Typography>
-        <Typography  component="p">
-            {enddate.toLocaleDateString()}
-        </Typography>
-      </CardContent>
-      </Card>
-        {editflag && (
-          <>
-         
-        <IconButton aria-label="edit" className={classes.margin} onClick={handleProjectDialogOpen}>
-          <CreateIcon />
-        </IconButton>
-        </>
-        )}
-
-        <ProjectCardDialog open={projectOpen} onClose={handleProjectDialogClose} changeflag={changeflag} setChangeflag={setChangeflag} data={data}/>
-
-        
-    </Paper>
-    </>
-  );
+  </Paper>
+  </>;
 }

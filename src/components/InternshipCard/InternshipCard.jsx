@@ -21,32 +21,34 @@ const handleInternDialogClose = () => {
 const startdate = new Date(data.startDate)
   const enddate = new Date(data.endDate)
   console.log(data);
-  return (
-    <>
-    
-    <Paper elevation={0}  className={classes.root}>
-        <Typography variant="subtitle1">Company Name:</Typography>
-        <Typography variant="body2">{data.companyName}</Typography> 
-        <Typography variant="subtitle1">Designation:</Typography>
-        <Typography  variant="body2">{data.designation}</Typography>
-        <Typography variant="subtitle1">Description:</Typography>
-       
-        <Typography variant="body2">{data.description}</Typography>
-        <Typography variant="subtitle1">Start Date:</Typography>
-        <Typography variant="body2"> {startdate.toLocaleDateString()}</Typography> 
-        <Typography variant="subtitle1">End Date:</Typography>
-        <Typography variant="body2"> {enddate.toLocaleDateString()}</Typography> 
-        {editflag && (
-          <>
-          
-        <IconButton aria-label="delete" className={classes.margin} onClick={handleInternDialogOpen}>
-          <CreateIcon />
-        </IconButton>
-        </>
-        )}
+  return <>
+  
+  <Paper elevation={0}  className={classes.root}>
+      <Typography variant="subtitle1">Company Name:</Typography>
+      <Typography variant="body2">{data.companyName}</Typography> 
+      <Typography variant="subtitle1">Designation:</Typography>
+      <Typography  variant="body2">{data.designation}</Typography>
+      <Typography variant="subtitle1">Description:</Typography>
+     
+      <Typography variant="body2">{data.description}</Typography>
+      <Typography variant="subtitle1">Start Date:</Typography>
+      <Typography variant="body2"> {startdate.toLocaleDateString()}</Typography> 
+      <Typography variant="subtitle1">End Date:</Typography>
+      <Typography variant="body2"> {enddate.toLocaleDateString()}</Typography> 
+      {editflag && (
+        <>
+        
+      <IconButton
+        aria-label="delete"
+        className={classes.margin}
+        onClick={handleInternDialogOpen}
+        size="large">
+        <CreateIcon />
+      </IconButton>
+      </>
+      )}
 
-        <InternshipCardDialog open={internOpen} onClose={handleInternDialogClose} changeflag={changeflag} setChangeflag={setChangeflag} data={data}/>
-    </Paper>
-    </>
-  );
+      <InternshipCardDialog open={internOpen} onClose={handleInternDialogClose} changeflag={changeflag} setChangeflag={setChangeflag} data={data}/>
+  </Paper>
+  </>;
 }

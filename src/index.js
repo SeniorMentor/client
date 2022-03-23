@@ -5,8 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CssBaseline } from '@mui/material'
 import { amber, grey } from '@mui/material/colors'
-import { createTheme } from "@mui/material/styles"
-import { ThemeProvider } from "@material-ui/styles"
+import { createTheme, StyledEngineProvider, adaptV4Theme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/styles";
+
 // Pallete: https://imagecolorpicker.com/user/shared-palette?id=02678879-f013-4ad9-bee8-1a132a12fe9b
 
 const getDesignTokens = (mode) => ({
@@ -45,7 +46,7 @@ const getDesignTokens = (mode) => ({
   },
 });
 
-const theme = createTheme({
+const theme = createTheme(adaptV4Theme({
   ...getDesignTokens('dark'),
   typography : {
     fontPrime : {
@@ -77,15 +78,17 @@ const theme = createTheme({
       }
     }
   }
-});
+}));
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </ThemeProvider>,
+  <StyledEngineProvider injectFirst>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+    </ThemeProvider>
+  </StyledEngineProvider>,
   document.getElementById('root')
 );
 

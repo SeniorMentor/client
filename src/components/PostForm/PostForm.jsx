@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius:"20px",
         // borderBottom:"3px solid #3f51b5",
         display:"flex",
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('lg')]: {
             display:"none"
           },
 
@@ -113,32 +113,29 @@ export default function PostForm({postCounter,setPostCounter}) {
        body:'',
       });
     return (
-    <div>
-    <Card className={clsx(classes.card)}>
-        <div className={classes.post}>
-            <FormControl fullWidth className={classes.input}>
-                <TextField name='body' multiline value={values.body} onChange={onChange} id="outlined-basic" label="What's on your mind?" />
-            </FormControl>
-            {previewFile && (
-                <img className={classes.image} src={previewFile}/>
-            )}
+        <div>
+        <Card className={clsx(classes.card)}>
+            <div className={classes.post}>
+                <FormControl fullWidth className={classes.input}>
+                    <TextField name='body' multiline value={values.body} onChange={onChange} id="outlined-basic" label="What's on your mind?" />
+                </FormControl>
+                {previewFile && (
+                    <img className={classes.image} src={previewFile}/>
+                )}
+            </div>
+            <div className={classes.buttons}>
+            <input accept="image/*" className={classes.mediainput} onChange={(event)=>{uploadImage(event)}} id="icon-button-file" type="file"/>
+                <label className={classes.uploadButton} htmlFor="icon-button-file">
+                    <IconButton color="primary" aria-label="upload picture" component="span" size="large">
+                        <PhotoCamera />
+                    </IconButton>
+                </label>
+                <Button disabled={(values.body!=='' || imageData!=='')?false:true}  onClick={onSubmit} className={classes.postButton} variant="contained" color="primary">
+                    Post
+                </Button>
+            </div>
+        </Card>
+        
         </div>
-        <div className={classes.buttons}>
-        <input accept="image/*" className={classes.mediainput} onChange={(event)=>{uploadImage(event)}} id="icon-button-file" type="file"/>
-            <label className={classes.uploadButton} htmlFor="icon-button-file">
-                <IconButton color="primary" aria-label="upload picture" component="span">
-                    <PhotoCamera />
-                </IconButton>
-            </label>
-            <Button disabled={(values.body!=='' || imageData!=='')?false:true}  onClick={onSubmit} className={classes.postButton} variant="contained" color="primary">
-                Post
-            </Button>
-        </div>
-    </Card>
-    
-    </div>
-    
-
-
-  );
+    );
 }

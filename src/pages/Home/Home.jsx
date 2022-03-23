@@ -11,13 +11,13 @@ import { PostForm, PostWall, ActivityCard, EventsCard } from '../../components'
 
 const useStyles = makeStyles((theme) => ({
     leftContainer:{
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('xl')]: {
         display:"none"
       },
     },
     rightContainer:{
       // position:"fixed",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('lg')]: {
         display:"none"
       },
     },

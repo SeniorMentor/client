@@ -72,14 +72,13 @@ export default function LikeButton({postinfo,data,postCounter,setPostCounter}) {
     const [message,setMessage]=useState('');
 
   return (
-      <div>
-        <IconButton onClick={handleClick} aria-label="Like">
-          <FavoriteIcon className={like?classes.likeIcon:classes.unlikeIcon} />
-          <Typography variant="subtitle2">{likeCount}</Typography>
+    <div>
+      <IconButton onClick={handleClick} aria-label="Like" size="large">
+        <FavoriteIcon className={like?classes.likeIcon:classes.unlikeIcon} />
+        <Typography variant="subtitle2">{likeCount}</Typography>
 
-        </IconButton>
-        {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
-      </div>
-
+      </IconButton>
+      {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
+    </div>
   );
 }

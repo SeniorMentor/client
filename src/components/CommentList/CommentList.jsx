@@ -38,37 +38,35 @@ const useStyles = makeStyles({
 export default function CommentList({post}) {
     const classes = useStyles();
     const[allComments,setAllComments]=useState(post.comments)
-  return (
-      <>
-    {allComments.length!=0 &&  allComments.map((comment,index)=>(
-    <Paper className={clsx(classes.root,classes.comment)} key={index}>
-         
-           
-         <CardHeader
-       avatar={
-         <Avatar aria-label="recipe" className={classes.avatar}>
-           {comment.userId.firstName.charAt(0)}
-         </Avatar>
-       }
-       action={
-         <IconButton aria-label="settings" aria-haspopup="true" >
-           <MoreVertIcon />
-         </IconButton>
-       } 
+  return <>
+{allComments.length!=0 &&  allComments.map((comment,index)=>(
+<Paper className={clsx(classes.root,classes.comment)} key={index}>
+     
        
-       
-       title= {comment.userId.firstName+' '+comment.userId.lastName} 
-       subheader={moment(comment.createdAt).fromNow()}
-     />
-     <CardContent>
-       <Typography variant="body2" color="textPrimary" component="p">
-       {comment.body}
-       </Typography>
-       
+     <CardHeader
+   avatar={
+     <Avatar aria-label="recipe" className={classes.avatar}>
+       {comment.userId.firstName.charAt(0)}
+     </Avatar>
+   }
+   action={
+     <IconButton aria-label="settings" aria-haspopup="true" size="large">
+       <MoreVertIcon />
+     </IconButton>
+   } 
+   
+   
+   title= {comment.userId.firstName+' '+comment.userId.lastName} 
+   subheader={moment(comment.createdAt).fromNow()}
+ />
+ <CardContent>
+   <Typography variant="body2" color="textPrimary" component="p">
+   {comment.body}
+   </Typography>
+   
 
-     </CardContent>
-     </Paper>
-    ))}
-    </>
-  );
+ </CardContent>
+ </Paper>
+))}
+</>;
 }

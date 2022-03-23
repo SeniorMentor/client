@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 const PersonBox = ({chatHead, lastMessage, groupName, newMessages})=>{
     const classes = useStyles(); 
     return (
-
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={chatHead} src="/static/images/avatar/1.jpg" />
@@ -58,7 +57,7 @@ const PersonBox = ({chatHead, lastMessage, groupName, newMessages})=>{
               </Link>
             </Grid>
             <Grid item md={2} sm={2} xs={2}>
-              <IconButton aria-label="cart">
+              <IconButton aria-label="cart" size="large">
                   <StyledBadge badgeContent={newMessages} color="secondary">
                     <ChatBubbleOutlinedIcon />
                   </StyledBadge> 
@@ -66,8 +65,7 @@ const PersonBox = ({chatHead, lastMessage, groupName, newMessages})=>{
             </Grid>
           </Grid>
       </ListItem>
-      
-    )
+    );
 }
 
 export default PersonBox; 

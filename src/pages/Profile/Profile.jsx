@@ -118,90 +118,89 @@ if(userData && userData.token) {
         
  
   return (
-  <Grid container>
+    <Grid container>
 
-    <Grid container direction="row">
-      <Grid item xs={12} sm={4}>
-        <img className={editflag?classes.editprofileImage:classes.profileImage} src={(!imageData)?defaultUser:`${API_URL}`+`/`+`${imageData}`} alt=""/>
+      <Grid container direction="row">
+        <Grid item xs={12} sm={4}>
+          <img className={editflag?classes.editprofileImage:classes.profileImage} src={(!imageData)?defaultUser:`${API_URL}`+`/`+`${imageData}`} alt=""/>
+          {editflag && (
+            <>
+          <input
+          onChange={(event)=>{uploadImage(event)}}
+          accept="image/*"
+          className={classes.mediainput}
+          id="contained-button-file"
+          multiple
+          type="file"
+        />
+        <label htmlFor="contained-button-file" >
+          <Button  size="medium" variant="contained" color="primary" component="span" style={{marginTop:"1rem", marginLeft:"0.5rem"}}>
+            Upload
+          </Button>
+        </label>
+        </>
+        )}
+
+        </Grid>
+        
+        <Grid item xs={11} sm={7}> 
+          <Grid>
+            <Typography variant="h4">{response.firstName} {response.lastName}</Typography>
+            <Typography variant="subtitle1" color="textSecondary">{dict[response.year]} , {response.branch}</Typography>
+            
+            <Typography variant="h6">About</Typography>
+            <Typography variant="body1">{response.bio}</Typography>
+          </Grid>
+          <Grid className={classes.messageAndFriends}>
+            {/* <Button color="primary">Add Friend</Button> */}
+            <Button  color="primary">Message</Button>
+            {/* <Button  color="primary" startIcon={<CheckIcon />}>Friends</Button> */}
+            {(userId===currentProfileId) && (<Button  color="primary" onClick={(()=>{setEditFlag(!editflag)})}>{editflag?"Done":"Edit"}</Button>)}
+
+
+          </Grid>
+        </Grid>
         {editflag && (
-          <>
-        <input
-        onChange={(event)=>{uploadImage(event)}}
-        accept="image/*"
-        className={classes.mediainput}
-        id="contained-button-file"
-        multiple
-        type="file"
-      />
-      <label htmlFor="contained-button-file" >
-        <Button  size="medium" variant="contained" color="primary" component="span" style={{marginTop:"1rem", marginLeft:"0.5rem"}}>
-          Upload
-        </Button>
-      </label>
-      </>
-      )}
+          <Grid item xs={1}>
+          <IconButton aria-label="Comment" onClick={handleIntroDialogOpen} size="large">
+              <CreateIcon />
+            </IconButton>
+          </Grid>
 
-      </Grid>
-      
-      <Grid item xs={11} sm={7}> 
-        <Grid>
-          <Typography variant="h4">{response.firstName} {response.lastName}</Typography>
-          <Typography variant="subtitle1" color="textSecondary">{dict[response.year]} , {response.branch}</Typography>
-          
-          <Typography variant="h6">About</Typography>
-          <Typography variant="body1">{response.bio}</Typography>
-        </Grid>
-        <Grid className={classes.messageAndFriends}>
-          {/* <Button color="primary">Add Friend</Button> */}
-          <Button  color="primary">Message</Button>
-          {/* <Button  color="primary" startIcon={<CheckIcon />}>Friends</Button> */}
-          {(userId===currentProfileId) && (<Button  color="primary" onClick={(()=>{setEditFlag(!editflag)})}>{editflag?"Done":"Edit"}</Button>)}
-
-
-        </Grid>
-      </Grid>
-      {editflag && (
-        <Grid item xs={1}>
-        <IconButton aria-label="Comment" onClick={handleIntroDialogOpen}>
-            <CreateIcon />
-          </IconButton>
-        </Grid>
-
-      )}
-      
-    </Grid>
-    <Grid container  direction="row">
-      <Grid item xs={12} sm={3}>
-          <Typography variant="h6">Skills 
-          
-
-          </Typography>
-          
-          {response.skills && response.skills.length!==0 && response.skills.map((skill,index)=>(
-            <Chip className={classes.skillnames} key={index} color="primary" label={skill.skill}/>
-         ))}
-         
+        )}
         
       </Grid>
-      <Grid item sm={1}>
-      {editflag && (
-        <Grid item xs={1}>
-          <IconButton aria-label="Comment" onClick={handleSkillDialogOpen}>
-            <CreateIcon />
-          </IconButton>
+      <Grid container  direction="row">
+        <Grid item xs={12} sm={3}>
+            <Typography variant="h6">Skills 
+            
+
+            </Typography>
+            
+            {response.skills && response.skills.length!==0 && response.skills.map((skill,index)=>(
+              <Chip className={classes.skillnames} key={index} color="primary" label={skill.skill}/>
+           ))}
+           
+          
         </Grid>
+        <Grid item sm={1}>
+        {editflag && (
+          <Grid item xs={1}>
+            <IconButton aria-label="Comment" onClick={handleSkillDialogOpen} size="large">
+              <CreateIcon />
+            </IconButton>
+          </Grid>
 
-      )}
+        )}
+        </Grid>
+        <Grid  className={classes.secondRow} item xs={12} sm={8}>
+          <UserInfoMenu editflag={editflag} changeflag={changeflag} setChangeflag={setChangeflag} data={response}/>      
+        </Grid>
       </Grid>
-      <Grid  className={classes.secondRow} item xs={12} sm={8}>
-        <UserInfoMenu editflag={editflag} changeflag={changeflag} setChangeflag={setChangeflag} data={response}/>      
-      </Grid>
-    </Grid>
-    
-    <IntroDialog data={response} open={introOpen} changeflag={changeflag} setChangeflag={setChangeflag} onClose={handleIntroDialogClose}/>
-    <SkillDialog data={response.skills} changeflag={changeflag} setChangeflag={setChangeflag} open={skillOpen} onClose={handleSkillDialogClose}/>
+      
+      <IntroDialog data={response} open={introOpen} changeflag={changeflag} setChangeflag={setChangeflag} onClose={handleIntroDialogClose}/>
+      <SkillDialog data={response.skills} changeflag={changeflag} setChangeflag={setChangeflag} open={skillOpen} onClose={handleSkillDialogClose}/>
 
-</Grid>
-
+  </Grid>
   );
 }

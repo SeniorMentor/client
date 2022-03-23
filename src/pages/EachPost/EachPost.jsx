@@ -57,7 +57,7 @@ export default function EachPost() {
   return (
     <div>
       
-      <Grid container spacing={2} justify='center'>
+      <Grid container spacing={2} justifyContent='center'>
         {post && (
           <>
           <Grid item xs={12} sm={8}>

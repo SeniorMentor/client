@@ -95,7 +95,7 @@ export default function ProfileForm({prevStep,handleChange,handleSubmit,values})
   
 
   return (
-    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+    <Grid container justifyContent="center" align="center" component="main" maxWidth="xs">
       <Grid item xs={6} md={4} lg={3}> 
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
