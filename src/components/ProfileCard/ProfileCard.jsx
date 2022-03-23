@@ -48,7 +48,7 @@ export default function ProfileCard({profile}) {
     <Link to={`/profile/view/${profile._id}`}  style={{textDecoration:"none",color:"inherit"}}>
       <Card className={classes.root}>
       <CardActionArea>
-        <img className={classes.media} src={(profile.imageLink)?`${process.env.REACT_APP_API_ENDPOINT}/`+`${profile.imageLink}`:defaultUser} alt="" />
+        <img className={classes.media} src={(profile.imageLink)? profile.imageLink :defaultUser} alt="" />
         
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">

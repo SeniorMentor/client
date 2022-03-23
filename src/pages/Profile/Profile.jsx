@@ -5,8 +5,6 @@ import {Typography,Grid,Button,Chip,IconButton} from '@mui/material'
 import CreateIcon from '@mui/icons-material/Create';
 import { makeStyles } from '@mui/styles';
 
-
-
 import defaultUser from '../../assets/img/defaultUser.jpg'
 
 import UserContext from '../../context/context'
@@ -15,6 +13,7 @@ import UserInfoMenu from '../../components/UserInfoMenu/UserInfoMenu'
 import IntroDialog from '../../components/IntroDialog/IntroDialog';
 import SkillDialog from '../../components/SkillDialog/SkillDialog'
 import { profileApi } from '../../utils/apis';
+import { clientGet } from '../../utils/apiClient';
 const API_URL = process.env.REACT_APP_API_ENDPOINT;
 
 const useStyles = makeStyles((theme) => ({
@@ -83,8 +82,7 @@ const handleSkillDialogClose = () => {
   const currentProfileId = arr[arr.length-1];
   useEffect(() => {
     let endpoint = (currentProfileId === 'profile') ? profileApi.point() : profileApi.get(currentProfileId); 
-    axios
-      .get(endpoint)
+    clientGet(endpoint,null,true)
       .then((res) => {
         const resp = res.data;
         setResponse(resp);
@@ -110,18 +108,16 @@ const handleSkillDialogClose = () => {
           setChangeflag(changeflag+1)
         })
   } 
-
-    
-
-        
-        
- 
+  // defaultUser = 'https://i.pravatar.cc/100';
   return (
     <Grid container>
-
-      <Grid container direction="row">
+      <Grid container direction="row" sx={{p:3}}>
         <Grid item xs={12} sm={4}>
-          <img className={editflag?classes.editprofileImage:classes.profileImage} src={(!imageData)?defaultUser:`${API_URL}`+`/`+`${imageData}`} alt=""/>
+          <img 
+            className={editflag?classes.editprofileImage:classes.profileImage} 
+            src={imageData?imageData:defaultUser} 
+            alt=""
+          />
           {editflag && (
             <>
           <input
@@ -169,7 +165,7 @@ const handleSkillDialogClose = () => {
         )}
         
       </Grid>
-      <Grid container  direction="row">
+      <Grid container  direction="row" sx={{p:3}}>
         <Grid item xs={12} sm={3}>
             <Typography variant="h6">Skills 
             

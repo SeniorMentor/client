@@ -1,6 +1,4 @@
 import React,{useEffect,useState} from 'react';
-import axios from 'axios'
-
 import {Grid,TextField,FormControl,InputLabel,Select,MenuItem} from '@mui/material'
 
 import ProfileCard from '../../components/ProfileCard/ProfileCard'

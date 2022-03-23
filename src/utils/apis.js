@@ -29,7 +29,7 @@ export const profileApi = {
         return `${baseApi}/profiles`;  
     },
     get: (id) => {
-        return `${baseApi}/profiles/${id}`
+        return `${baseApi}/profile/${id}`
     },
     point: () => {
         return `${baseApi}/profile`;
