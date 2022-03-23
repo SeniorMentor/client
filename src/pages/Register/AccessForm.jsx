@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import smgif from "../../assets/img/smgif.gif";
 
-import {Avatar,Button,TextField,CircularProgress,Typography} from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import {Avatar,Button,TextField,CircularProgress,Typography} from '@mui/material';
+import Grid from '@mui/material/Grid';
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 
@@ -114,7 +114,7 @@ export default function AccessForm({nextStep,values,handleChange}) {
       };
 
   return (
-    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+    <Grid container justifyContent="center" align="center" component="main" maxWidth="xs">
       <Grid item xs={6} md={4} lg={3}>
         <div className={classes.paper}>
           <Avatar alt="logo" variant="square" src={smgif} style={{ width:"15vh", height:"15vh", padding:"1px"}}/>

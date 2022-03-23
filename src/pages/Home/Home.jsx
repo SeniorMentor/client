@@ -2,22 +2,22 @@ import React,{useState,useEffect} from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
-import Fab from '@material-ui/core/Fab';
-import CreateIcon from '@material-ui/icons/Create';
-import {Grid} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@mui/material/Fab';
+import CreateIcon from '@mui/icons-material/Create';
+import {Grid} from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 import { PostForm, PostWall, ActivityCard, EventsCard } from '../../components'
 
 const useStyles = makeStyles((theme) => ({
     leftContainer:{
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('xl')]: {
         display:"none"
       },
     },
     rightContainer:{
       // position:"fixed",
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('lg')]: {
         display:"none"
       },
     },

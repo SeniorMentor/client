@@ -2,8 +2,8 @@ import React,{useState,useEffect} from 'react'
 import clsx from 'clsx';
 import axios from 'axios';
 
-import {Typography,Grid} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import {Typography,Grid} from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 import SeperatePostCard from '../../components/SeperatePostCard/SeperatePostCard';
 import CommentList from '../../components/CommentList/CommentList'
@@ -57,7 +57,7 @@ export default function EachPost() {
   return (
     <div>
       
-      <Grid container spacing={2} justify='center'>
+      <Grid container spacing={2} justifyContent='center'>
         {post && (
           <>
           <Grid item xs={12} sm={8}>

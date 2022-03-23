@@ -1,15 +1,15 @@
 import React from 'react';
 import {Link} from "react-router-dom"
 
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import Badge from '@material-ui/core/Badge';
-import IconButton from '@material-ui/core/IconButton';
-import ChatBubbleOutlinedIcon from '@material-ui/icons/ChatBubbleOutlined';
-import Grid from '@material-ui/core/Grid';
+import { makeStyles, withStyles } from '@mui/styles';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import ChatBubbleOutlinedIcon from '@mui/icons-material/ChatBubbleOutlined';
+import Grid from '@mui/material/Grid';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 const PersonBox = ({chatHead, lastMessage, groupName, newMessages})=>{
     const classes = useStyles(); 
     return (
-
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar alt={chatHead} src="/static/images/avatar/1.jpg" />
@@ -58,7 +57,7 @@ const PersonBox = ({chatHead, lastMessage, groupName, newMessages})=>{
               </Link>
             </Grid>
             <Grid item md={2} sm={2} xs={2}>
-              <IconButton aria-label="cart">
+              <IconButton aria-label="cart" size="large">
                   <StyledBadge badgeContent={newMessages} color="secondary">
                     <ChatBubbleOutlinedIcon />
                   </StyledBadge> 
@@ -66,8 +65,7 @@ const PersonBox = ({chatHead, lastMessage, groupName, newMessages})=>{
             </Grid>
           </Grid>
       </ListItem>
-      
-    )
+    );
 }
 
 export default PersonBox; 

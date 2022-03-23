@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
-import {Typography,Paper,CardHeader,Avatar,CardContent,IconButton} from '@material-ui/core'
+import {Typography,Paper,CardHeader,Avatar,CardContent,IconButton} from '@mui/material'
 import moment from 'moment';
 import clsx from 'clsx';
 
-import { makeStyles } from '@material-ui/core/styles';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { makeStyles } from '@mui/styles';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const useStyles = makeStyles({
     root:{
@@ -38,37 +38,35 @@ const useStyles = makeStyles({
 export default function CommentList({post}) {
     const classes = useStyles();
     const[allComments,setAllComments]=useState(post.comments)
-  return (
-      <>
-    {allComments.length!=0 &&  allComments.map((comment,index)=>(
-    <Paper className={clsx(classes.root,classes.comment)} key={index}>
-         
-           
-         <CardHeader
-       avatar={
-         <Avatar aria-label="recipe" className={classes.avatar}>
-           {comment.userId.firstName.charAt(0)}
-         </Avatar>
-       }
-       action={
-         <IconButton aria-label="settings" aria-haspopup="true" >
-           <MoreVertIcon />
-         </IconButton>
-       } 
+  return <>
+{allComments.length!=0 &&  allComments.map((comment,index)=>(
+<Paper className={clsx(classes.root,classes.comment)} key={index}>
+     
        
-       
-       title= {comment.userId.firstName+' '+comment.userId.lastName} 
-       subheader={moment(comment.createdAt).fromNow()}
-     />
-     <CardContent>
-       <Typography variant="body2" color="textPrimary" component="p">
-       {comment.body}
-       </Typography>
-       
+     <CardHeader
+   avatar={
+     <Avatar aria-label="recipe" className={classes.avatar}>
+       {comment.userId.firstName.charAt(0)}
+     </Avatar>
+   }
+   action={
+     <IconButton aria-label="settings" aria-haspopup="true" size="large">
+       <MoreVertIcon />
+     </IconButton>
+   } 
+   
+   
+   title= {comment.userId.firstName+' '+comment.userId.lastName} 
+   subheader={moment(comment.createdAt).fromNow()}
+ />
+ <CardContent>
+   <Typography variant="body2" color="textPrimary" component="p">
+   {comment.body}
+   </Typography>
+   
 
-     </CardContent>
-     </Paper>
-    ))}
-    </>
-  );
+ </CardContent>
+ </Paper>
+))}
+</>;
 }

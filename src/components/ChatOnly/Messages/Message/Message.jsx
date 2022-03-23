@@ -1,10 +1,10 @@
 import React from 'react';
 import moment from 'moment'; 
 
-import { makeStyles } from '@material-ui/core/styles';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import { makeStyles } from '@mui/styles';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 const useStyles = makeStyles((theme) => ({
     root: {

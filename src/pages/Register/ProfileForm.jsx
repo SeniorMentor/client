@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 
-import {Typography,Grid,TextField,Button,Select,MenuItem,FormControl,InputLabel} from '@material-ui/core'
+import {Typography,Grid,TextField,Button,Select,MenuItem,FormControl,InputLabel} from '@mui/material'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -95,7 +95,7 @@ export default function ProfileForm({prevStep,handleChange,handleSubmit,values})
   
 
   return (
-    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+    <Grid container justifyContent="center" align="center" component="main" maxWidth="xs">
       <Grid item xs={6} md={4} lg={3}> 
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">

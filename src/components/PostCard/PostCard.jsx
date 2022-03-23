@@ -3,8 +3,8 @@ import clsx from  'clsx';
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 
-import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar} from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 import LikeButton from '../LikeButton/LikeButton'
 import CommentButton from '../CommentButton/CommentButton'

@@ -1,7 +1,7 @@
 import React,{useState,useContext} from 'react';
 
-import {Typography,IconButton} from '@material-ui/core'
-import ChatIcon from '@material-ui/icons/Chat';
+import {Typography,IconButton} from '@mui/material'
+import ChatIcon from '@mui/icons-material/Chat';
 
 import CommentDialog from '../CommentDialog/CommentDialog'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
@@ -39,17 +39,16 @@ export default function CommentButton({data,postinfo,postCounter,setPostCounter}
     
 
   return (
-      <div>
+    <div>
+      
+    <IconButton aria-label="Comment" onClick={handleDialogOpen} size="large">
+        <ChatIcon />
+        <Typography variant="subtitle2">{commentCount}</Typography>
         
-      <IconButton aria-label="Comment" onClick={handleDialogOpen}>
-          <ChatIcon />
-          <Typography variant="subtitle2">{commentCount}</Typography>
-          
-        </IconButton>
-        {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
-        
-        
-          <CommentDialog open={opendialog} onClose={handleDialogClose} postid={postinfo} commentCount={commentCount} setCommentCount={setCommentCount}/>      </div>
-
+      </IconButton>
+      {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
+      
+      
+        <CommentDialog open={opendialog} onClose={handleDialogClose} postid={postinfo} commentCount={commentCount} setCommentCount={setCommentCount}/>      </div>
   );
 }

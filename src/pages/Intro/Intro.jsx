@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import sm_graphic_1 from "../../assets/img/sm_graphic_1.gif";
 
-import { Grid, Avatar, Zoom, Typography, Box, Button } from "@material-ui/core"
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid, Avatar, Zoom, Typography, Box, Button } from "@mui/material"
+import { makeStyles } from '@mui/styles';
 
 const data = [
     'Connect with your peers',

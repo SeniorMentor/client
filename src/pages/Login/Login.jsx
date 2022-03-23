@@ -3,8 +3,8 @@ import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import jwt_decode from "jwt-decode";
 
-import {Avatar,Button,TextField,Grid,Typography} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {Avatar,Button,TextField,Grid,Typography} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 import UserContext from '../../context/context'
 import { SocketContext } from '../../context/socketContext' 
@@ -85,7 +85,7 @@ export default function Login() {
   
 
   return (
-    <Grid container justify="center" align="center" component="main" maxWidth="xs">
+    <Grid container justifyContent="center" align="center" component="main" maxWidth="xs">
       <Grid item xs={6} md={4} lg={3}> 
         <div className={classes.paper}>
           <Avatar alt="logo" variant="square" src={smgif} style={{ width:"15vh", height:"15vh", padding:"1px"}}/>

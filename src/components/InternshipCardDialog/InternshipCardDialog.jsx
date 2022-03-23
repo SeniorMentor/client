@@ -1,12 +1,11 @@
 import React,{useState,useEffect,useContext} from 'react'
 
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-import { TextField,Grid,Button,Dialog,DialogContent,DialogActions,DialogContentText} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import KeyboardDatePicker from '@mui/lab/DatePicker';
+
+import { TextField,Grid,Button,Dialog,DialogContent,DialogActions,DialogContentText} from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 import UserContext from '../../context/context'
 
@@ -162,7 +161,7 @@ const handleendDateChange = (date) => {
                 
             </Grid>
           <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
           <KeyboardDatePicker
           fullWidth
           margin="normal"
@@ -175,12 +174,9 @@ const handleendDateChange = (date) => {
             'aria-label': 'change date',
           }}
         />
-          </MuiPickersUtilsProvider>
-          
-              
-            </Grid>
-            <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          </LocalizationProvider>
+            </Grid> <Grid item xs={12} sm={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
           <KeyboardDatePicker
           fullWidth
           margin="normal"
@@ -193,7 +189,7 @@ const handleendDateChange = (date) => {
             'aria-label': 'change date',
           }}
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>

@@ -1,9 +1,9 @@
 import React,{useContext,useState,useEffect} from 'react';
 import axios from 'axios'
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import {Typography,IconButton } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import {Typography,IconButton } from '@mui/material'
+import { makeStyles } from '@mui/styles';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import UserContext from '../../context/context'
@@ -72,14 +72,13 @@ export default function LikeButton({postinfo,data,postCounter,setPostCounter}) {
     const [message,setMessage]=useState('');
 
   return (
-      <div>
-        <IconButton onClick={handleClick} aria-label="Like">
-          <FavoriteIcon className={like?classes.likeIcon:classes.unlikeIcon} />
-          <Typography variant="subtitle2">{likeCount}</Typography>
+    <div>
+      <IconButton onClick={handleClick} aria-label="Like" size="large">
+        <FavoriteIcon className={like?classes.likeIcon:classes.unlikeIcon} />
+        <Typography variant="subtitle2">{likeCount}</Typography>
 
-        </IconButton>
-        {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
-      </div>
-
+      </IconButton>
+      {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
+    </div>
   );
 }

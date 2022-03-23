@@ -1,8 +1,8 @@
 import React,{useContext} from 'react';
 import { Link } from "react-router-dom";
 
-import { makeStyles } from '@material-ui/core/styles';
-import {Card,CardActionArea ,CardActions,CardContent,Button,Typography } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import {Card,CardActionArea ,CardActions,CardContent,Button,Typography } from '@mui/material';
 
 import UserContext from '../../context/context';  
 import defaultUser from '../../assets/img/defaultUser.jpg'

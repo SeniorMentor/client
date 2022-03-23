@@ -2,11 +2,12 @@ import React,{useContext} from 'react';
 import { Link } from "react-router-dom"; 
 import clsx from 'clsx';
 
-import { makeStyles, useTheme, alpha } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles'
+import { useTheme, alpha } from '@mui/material/styles';
 import {
   AppBar,Toolbar,List,Typography,ListItem,ListItemText,
   Drawer, Box, IconButton, InputBase
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   Search as SearchIcon,
   ChevronLeft as ChevronLeftIcon,
@@ -14,8 +15,8 @@ import {
   Menu as MenuIcon,
   Notifications as NotificationsIcon,
   AccountCircle
-} from '@material-ui/icons'
-import Badge from '@material-ui/core/Badge';
+} from '@mui/icons-material'
+import Badge from '@mui/material/Badge';
 
 import UserContext from '../../context/context' 
 
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.fontPrime,
     fontSize : "2rem",
     fontWeight : "600",
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       display: 'none',
     },
   }, 
@@ -79,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
@@ -153,7 +154,13 @@ export default function Navbar({open,setOpen}) {
       <AppBar  elevation={0} color="primary" position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open,})}>
         <Toolbar>
             <Box display="flex" width="30%">
-              <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start" className={clsx(classes.menuButton, open && classes.hide)}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, open && classes.hide)}
+                size="large">
                 <MenuIcon />
               </IconButton>
               <Typography component="span" variant="h6" noWrap className={classes.heading}>
@@ -176,7 +183,12 @@ export default function Navbar({open,setOpen}) {
                 
               </Box>
               <Box display="flex" mr={0.5}>
-                <IconButton aria-label="show new notifications" color="inherit" component={Link} to="/notifications">
+                <IconButton
+                  aria-label="show new notifications"
+                  color="inherit"
+                  component={Link}
+                  to="/notifications"
+                  size="large">
                   <Badge badgeContent={'+'} color="secondary">
                     <NotificationsIcon />
                   </Badge>
@@ -190,7 +202,7 @@ export default function Navbar({open,setOpen}) {
                   color="inherit"
                   component={Link}
                   to="/profile"
-                >
+                  size="large">
                   <AccountCircle />
                 </IconButton>
               </Box>
@@ -199,7 +211,7 @@ export default function Navbar({open,setOpen}) {
       </AppBar>
       <Drawer className={classes.drawer} variant="persistent" anchor="left" open={open} classes={{paper: classes.drawerPaper,}}>
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} size="large">
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>

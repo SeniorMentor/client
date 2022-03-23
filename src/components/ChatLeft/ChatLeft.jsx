@@ -1,14 +1,14 @@
 import React,{useState, useEffect} from 'react';
 import {Link} from "react-router-dom"
 
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@mui/styles';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import PersonBox from './PersonBox/PersonBox'; 
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Box from '@material-ui/core/Box';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import Box from '@mui/material/Box';
 
 
 const useStyles = makeStyles((theme) => ({

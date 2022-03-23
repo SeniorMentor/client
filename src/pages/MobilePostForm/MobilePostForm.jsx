@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import {TextField,Button} from '@material-ui/core'
+import {TextField,Button} from '@mui/material'
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
     upload:{
         marginTop:"1rem"
