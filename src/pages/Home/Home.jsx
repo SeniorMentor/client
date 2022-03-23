@@ -8,7 +8,8 @@ import Intro from '../../pages/Intro/Intro'
 import { useHistory } from "react-router-dom";
 
 import PostForm from '../../components/PostForm/PostForm'
-import ActivityCard from '../../components/ActivityCard/ActivityCard'
+import EventsCard from '../../components/EventsCard/EventsCard'
+import ActivityCard from '../../components/ActivityCardLeft/ActivityCardLeft'
 import UserContext from '../../context/context'
 import PostWall from '../../components/PostWall/PostWall'
 
@@ -82,7 +83,7 @@ export default function Home() {
               </Grid>
           </Grid>
           <Grid item className={classes.rightContainer} md={4} lg={3}>
-            <ActivityCard />
+            <EventsCard />
           </Grid>
         </Grid> 
         <Link to="/createPost">
