@@ -1,26 +1,13 @@
-import React,{useState,useContext} from 'react';
+import React from 'react';
 import clsx from  'clsx';
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 
-
-import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar,IconButton,Menu,MenuItem } from '@material-ui/core'
-
+import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-
-import ChatIcon from '@material-ui/icons/Chat';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import LikeButton from '../LikeButton/LikeButton'
 import CommentButton from '../CommentButton/CommentButton'
-import EachPost from '../../pages/EachPost/EachPost'
-
-import UserContext from '../../context/context'
-
-
-
-const API_URL = process.env.REACT_APP_API_ENDPOINT;
-
 
 const useStyles = makeStyles((theme) => ({
     

@@ -1,18 +1,21 @@
 import React,{useEffect,useContext,useState} from 'react';
+import axios from 'axios'
+
 import {Typography,Grid,Button,Chip,IconButton} from '@material-ui/core'
 import CreateIcon from '@material-ui/icons/Create';
-import axios from 'axios'
+import { makeStyles } from '@material-ui/core/styles';
+
 
 
 import defaultUser from '../../assets/img/defaultUser.jpg'
 
-import { makeStyles } from '@material-ui/core/styles';
 import UserContext from '../../context/context'
 
 import UserInfoMenu from '../../components/UserInfoMenu/UserInfoMenu'
 import IntroDialog from '../../components/IntroDialog/IntroDialog';
 import SkillDialog from '../../components/SkillDialog/SkillDialog'
 const API_URL = process.env.REACT_APP_API_ENDPOINT;
+
 const useStyles = makeStyles((theme) => ({
   
   messageAndFriends:{

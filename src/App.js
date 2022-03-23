@@ -1,8 +1,9 @@
 import './App.css';
 import React,{useState,useEffect} from 'react'
-import { useHistory } from "react-router-dom";
 import clsx from 'clsx';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
+import jwt_decode from "jwt-decode";
+
 import UserContext from './context/context';
 import { SocketContext, socket}  from "./context/socketContext"; 
 import Navbar from './components/Navbar/Navbar'
@@ -17,10 +18,8 @@ import Chat from './pages/Chat/Chat'
 import ChatPersonal from './pages/ChatPersonal/ChatPersonal' 
 import EachPost from './pages/EachPost/EachPost'
 import Intro from './pages/Intro/Intro'
-import jwt_decode from "jwt-decode";
 
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Grid, Avatar } from '@material-ui/core'
 
 
 const drawerWidth = 240;
@@ -78,7 +77,7 @@ function App() {
   useEffect(() => {
     const checkLoggedIn = async () => {
       let tokenval = localStorage.getItem('auth-token');
-      if (!tokenval || tokenval == '' || jwt_decode(tokenval).exp < Date.now() / 1000) {
+      if (!tokenval || tokenval === '' || jwt_decode(tokenval).exp < Date.now() / 1000) {
         console.log("Expired token reset")
         localStorage.setItem('auth-token', '');
         setUserData({

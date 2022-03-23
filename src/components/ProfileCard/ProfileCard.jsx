@@ -1,9 +1,10 @@
-import React,{useContext,useState} from 'react';
+import React,{useContext} from 'react';
 import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import {Card,CardActionArea ,CardActions,CardContent,CardMedia,Button,Typography } from '@material-ui/core';
-import UserContext from '../../context/context';  
 
+import { makeStyles } from '@material-ui/core/styles';
+import {Card,CardActionArea ,CardActions,CardContent,Button,Typography } from '@material-ui/core';
+
+import UserContext from '../../context/context';  
 import defaultUser from '../../assets/img/defaultUser.jpg'
 
 const useStyles = makeStyles({
@@ -33,7 +34,6 @@ const useStyles = makeStyles({
 
 export default function ProfileCard({profile}) {
   const { userData } = useContext(UserContext); 
-  const[imageData,setImageData]=useState(null)
   const myId = userData.token.userId; 
   const friendId = profile._id; 
   let groupName = null; 

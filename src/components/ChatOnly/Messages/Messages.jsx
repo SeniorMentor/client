@@ -1,5 +1,4 @@
 import React,{useContext} from "react";
-import ScrollToBottom from "react-scroll-to-bottom";
 import Message from "./Message/Message"; 
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
@@ -24,18 +23,13 @@ const useStyles = makeStyles((theme) => ({
     }, 
 }));
 
-const styles = {
-    height: "60vh !important",
-}
-
 const Messages = ({messages}) => {
     const { userData } = useContext(UserContext);
-    let token = null;
     let myId = null
     if(userData &&  userData.token) { 
         myId = userData.token.userId; 
     }
-    const classes = useStyles();
+    
     return (
         <Box style={{height:"60vh"}}>
             {

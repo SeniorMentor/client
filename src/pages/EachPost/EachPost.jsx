@@ -1,20 +1,13 @@
-import React,{useState,useEffect,useContext} from 'react'
-import {Typography,Grid} from '@material-ui/core'
+import React,{useState,useEffect} from 'react'
 import clsx from 'clsx';
+import axios from 'axios';
 
-
-
-
+import {Typography,Grid} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 import SeperatePostCard from '../../components/SeperatePostCard/SeperatePostCard';
 import CommentList from '../../components/CommentList/CommentList'
 import InfoBar from '../../components/InfoBar/InfoBar'
-
-import axios from 'axios'
-
-const API_URL = process.env.REACT_APP_API_ENDPOINT;
-
 
 const useStyles = makeStyles({
   root:{

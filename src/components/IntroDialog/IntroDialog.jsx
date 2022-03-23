@@ -1,16 +1,13 @@
 import React,{useState,useEffect,useContext} from 'react'
 
-import { TextField,Grid,Button,Dialog, DialogTitle,DialogContent,DialogActions,DialogContentText} from '@material-ui/core';
-import {Typography,Box,Select,MenuItem,FormControl,InputLabel} from '@material-ui/core'
+import { TextField,Grid,Button,Dialog,DialogContent,DialogActions } from '@material-ui/core';
+import { Select,MenuItem,FormControl,InputLabel } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import UserContext from '../../context/context';
 
-import UserContext from '../../context/context'
+import axios from 'axios';
 
-import axios from 'axios'
-
-
-const useStyles = makeStyles((theme) => ({
-  
+const useStyles = makeStyles((theme) => ({  
     messageAndFriends:{
       marginTop:"1rem",
       marginBottom:"1rem",

@@ -1,28 +1,21 @@
 import React,{useContext,useState,useEffect} from 'react';
-import clsx from  'clsx';
-
+import axios from 'axios'
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import {Card,Typography,CardHeader,CardContent,CardActions,Avatar,IconButton,Menu,MenuItem } from '@material-ui/core'
-
+import {Typography,IconButton } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
-
 import UserContext from '../../context/context'
-import axios from 'axios'
 
 
 const useStyles = makeStyles((theme) => ({
-    
     likeIcon:{
         color:"#e0245e"
     },
     unlikeIcon:{
         color:"none"
     }
-    
-    
 }))
 
 

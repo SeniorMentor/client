@@ -1,8 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios'
 
-
-import {Typography,Grid,Container,TextField,FormControl,InputLabel,Select,MenuItem} from '@material-ui/core'
+import {Grid,TextField,FormControl,InputLabel,Select,MenuItem} from '@material-ui/core'
 
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
@@ -31,7 +30,7 @@ export default function Community() {
     searchWord = searchWord.toLowerCase();
     word = word.toLowerCase(); 
     let substr = word.substring(0,searchWord.length)
-    if( substr == searchWord ) return 1;
+    if( substr === searchWord ) return 1;
     return 0; 
   }
   
@@ -128,7 +127,7 @@ export default function Community() {
         
         {response.length!==0 && response.map((profile,index)=>{
           //console.log(profile); 
-          if((branch === 'All' || profile.branch === branch)  && ((year === 'All') || profile.year==year) && ((name === '') || match(name,`${profile.firstName} ${profile.lastName}`)) && ((skill === '') || skillMatch(skill, profile.skills)) ) { 
+          if((branch === 'All' || profile.branch === branch)  && ((year === 'All') || profile.year===year) && ((name === '') || match(name,`${profile.firstName} ${profile.lastName}`)) && ((skill === '') || skillMatch(skill, profile.skills)) ) { 
             return (
               <Grid item key={index} xs={12} sm={3}>
                 <ProfileCard key={index} profile={profile} />            

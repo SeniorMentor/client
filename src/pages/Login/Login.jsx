@@ -1,18 +1,15 @@
 import React,{useContext,useState} from 'react';
-import { Link } from "react-router-dom"; 
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
-import UserContext from '../../context/context'
-import { SocketContext } from '../../context/socketContext' 
 import jwt_decode from "jwt-decode";
-import smgif from "../../assets/img/smgif.gif";
-import {Avatar,Button,TextField,Grid,Box,Typography,Container} from '@material-ui/core';
 
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {Avatar,Button,TextField,Grid,Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import UserContext from '../../context/context'
+import { SocketContext } from '../../context/socketContext' 
+import smgif from "../../assets/img/smgif.gif";
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
-
 import { useForm } from '../../utils/hook';
 
 const useStyles = makeStyles((theme) => ({

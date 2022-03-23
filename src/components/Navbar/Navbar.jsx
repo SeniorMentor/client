@@ -1,11 +1,12 @@
 import React,{useContext} from 'react';
+import { Link } from "react-router-dom"; 
 import clsx from 'clsx';
 
 import { makeStyles, useTheme, alpha } from '@material-ui/core/styles';
-import {AppBar,Toolbar,List,Typography,ListItem,ListItemText,Drawer,Button, Box} from '@material-ui/core';
-import { Link } from "react-router-dom"; 
-
-import { IconButton, InputBase, Menu } from '@material-ui/core';
+import {
+  AppBar,Toolbar,List,Typography,ListItem,ListItemText,
+  Drawer, Box, IconButton, InputBase
+} from '@material-ui/core';
 import {
   Search as SearchIcon,
   ChevronLeft as ChevronLeftIcon,
@@ -14,8 +15,8 @@ import {
   Notifications as NotificationsIcon,
   AccountCircle
 } from '@material-ui/icons'
-
 import Badge from '@material-ui/core/Badge';
+
 import UserContext from '../../context/context' 
 
 const drawerWidth = 240;

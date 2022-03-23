@@ -1,9 +1,8 @@
-import React,{useState,useContext} from 'react';
+import React,{useState} from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 
-
-import {Typography,Grid,Box,TextField,Container,Button,Select,MenuItem,FormControl,InputLabel} from '@material-ui/core'
+import {Typography,Grid,TextField,Button,Select,MenuItem,FormControl,InputLabel} from '@material-ui/core'
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -48,8 +47,6 @@ const useStyles = makeStyles((theme) => ({
   formControl1: {
     minWidth: 190,
     marginTop:"1rem",
-    // marginRight:"1rem",
-    // marginBottom:"1rem"
   },
   formControl2: {
     minWidth: 190,
@@ -57,16 +54,13 @@ const useStyles = makeStyles((theme) => ({
   },
   }));
 
-  // const imp={headers: {
-  //   'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-  // }}
+
 export default function ProfileForm({prevStep,handleChange,handleSubmit,values}) {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
     const [message,setMessage]=useState('');
     const [loading, setLoading] =useState(false);
     const history = useHistory();
-
 
     const handleButtonClick = (event) => {
       event.preventDefault()

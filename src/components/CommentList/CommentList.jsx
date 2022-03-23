@@ -1,19 +1,10 @@
-import React,{useState,useEffect,useContext} from 'react'
-import {Typography,Grid,Button,Chip,Paper,CardHeader,Avatar,CardContent,CardActions,Menu,MenuItem,IconButton} from '@material-ui/core'
+import React,{useState} from 'react'
+import {Typography,Paper,CardHeader,Avatar,CardContent,IconButton} from '@material-ui/core'
 import moment from 'moment';
 import clsx from 'clsx';
 
-
-import {Link} from 'react-router-dom'
-
-
 import { makeStyles } from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
-import PostCard from '../../components/PostCard/PostCard';
-import LikeButton from '../../components/LikeButton/LikeButton'
-import CommentButton from '../../components/CommentButton/CommentButton'
-import LikesDialog from '../../components/LikesDialog/LikesDialog'
 
 const useStyles = makeStyles({
     root:{

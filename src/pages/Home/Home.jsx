@@ -1,27 +1,13 @@
-import React,{useContext,useState,useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import axios from 'axios'
-
 import {Link} from 'react-router-dom'
+
 import Fab from '@material-ui/core/Fab';
 import CreateIcon from '@material-ui/icons/Create';
-import Intro from '../../pages/Intro/Intro'
-import { useHistory } from "react-router-dom";
-
-import PostForm from '../../components/PostForm/PostForm'
-import EventsCard from '../../components/EventsCard/EventsCard'
-import ActivityCard from '../../components/ActivityCardLeft/ActivityCardLeft'
-import UserContext from '../../context/context'
-import PostWall from '../../components/PostWall/PostWall'
-
-
-
-
-import {Grid,TextField} from '@material-ui/core'
-
+import {Grid} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
-
-
+import { PostForm, PostWall, ActivityCard, EventsCard } from '../../components'
 
 const useStyles = makeStyles((theme) => ({
     leftContainer:{
@@ -47,13 +33,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export default function Home() {
-  const history = useHistory();
   const classes = useStyles();
-  const { userData } = useContext(UserContext);
   const [posts,setPosts] = useState([])
-  const [postCounter,setPostCounter]=useState(0)
-
-  
+  const [postCounter,setPostCounter]=useState(0);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_ENDPOINT}/posts/all`)

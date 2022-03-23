@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import sm_graphic_1 from "../../assets/img/sm_graphic_1.gif";
-import { Grid, Avatar, Zoom, Typography, Box, Button, RaisedButton } from "@material-ui/core"
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom'
+import sm_graphic_1 from "../../assets/img/sm_graphic_1.gif";
+
+import { Grid, Avatar, Zoom, Typography, Box, Button } from "@material-ui/core"
+import { makeStyles } from '@material-ui/core/styles';
 
 const data = [
     'Connect with your peers',
@@ -34,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
 
   
 export default function Intro() {
-    const theme = useTheme();
     const classes = useStyles();
     const [index,setIndex] = useState(0);
     const [phase,setPhase] = useState(false);

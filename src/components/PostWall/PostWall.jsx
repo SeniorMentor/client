@@ -1,7 +1,8 @@
 import React from 'react';
 
+import {Grid} from '@material-ui/core'
+
 import PostCard from '../PostCard/PostCard'
-import {Grid,TextField} from '@material-ui/core'
 
 export default function PostWall({posts}) {
   return (

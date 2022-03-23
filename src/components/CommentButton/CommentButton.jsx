@@ -1,23 +1,12 @@
 import React,{useState,useContext} from 'react';
-import clsx from  'clsx';
 
-import {Card,Typography,CardHeader,CardContent,CardActions,Avatar,IconButton,Menu,MenuItem } from '@material-ui/core'
-import Modal from '@material-ui/core/Modal';
-
+import {Typography,IconButton} from '@material-ui/core'
 import ChatIcon from '@material-ui/icons/Chat';
-
-import { makeStyles } from '@material-ui/core/styles';
 
 import CommentDialog from '../CommentDialog/CommentDialog'
 import ErrorMessage from '../ErrorMessage/ErrorMessage'
 
 import UserContext from '../../context/context'
-
-const useStyles = makeStyles((theme) => ({
-    
-}))
-
-
 
 export default function CommentButton({data,postinfo,postCounter,setPostCounter}) {
     // const classes = useStyles();

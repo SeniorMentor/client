@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {AppBar,Tabs,Tab,Divider,Typography,Button,Paper} from '@material-ui/core';
+import {AppBar,Tabs,Tab,Divider,Button,Paper} from '@material-ui/core';
 
 
 import InternshipCard from '../InternshipCard/InternshipCard'
