@@ -1,11 +1,10 @@
 import React,{useState,useEffect,useContext} from 'react'
 import axios from 'axios'
 
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import KeyboardDatePicker from '@mui/lab/DatePicker';
+
 import { TextField,Grid,Button,Dialog,DialogContent,DialogActions} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
@@ -168,7 +167,7 @@ export default function ProjectCardDialog(props) {
                 />
             </Grid>
           <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <LocalizationProvider utils={AdapterDateFns}>
           <KeyboardDatePicker
           fullWidth
           margin="normal"
@@ -181,12 +180,12 @@ export default function ProjectCardDialog(props) {
             'aria-label': 'change date',
           }}
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>
             <Grid item xs={12} sm={6}>
-          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <LocalizationProvider utils={AdapterDateFns}>
           <KeyboardDatePicker
           fullWidth
           margin="normal"
@@ -199,7 +198,7 @@ export default function ProjectCardDialog(props) {
             'aria-label': 'change date',
           }}
         />
-          </MuiPickersUtilsProvider>
+          </LocalizationProvider>
           
               
             </Grid>
