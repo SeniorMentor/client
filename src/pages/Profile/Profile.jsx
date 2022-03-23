@@ -14,6 +14,7 @@ import UserContext from '../../context/context'
 import UserInfoMenu from '../../components/UserInfoMenu/UserInfoMenu'
 import IntroDialog from '../../components/IntroDialog/IntroDialog';
 import SkillDialog from '../../components/SkillDialog/SkillDialog'
+import { profileApi } from '../../utils/apis';
 const API_URL = process.env.REACT_APP_API_ENDPOINT;
 
 const useStyles = makeStyles((theme) => ({
@@ -47,15 +48,13 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile() {
   const classes = useStyles();
   const { userData } = useContext(UserContext);
-  const [response, setResponse] = useState({});
+  
+  const[response, setResponse] = useState({});
   const[changeflag,setChangeflag]=useState(0)
   const[editflag,setEditFlag]=useState(false)
   const[introOpen,setIntroOpen]=useState(false)
   const[skillOpen,setSkillOpen]=useState(false)
   const[imageData,setImageData]=useState('')
-
-
-
 
   const handleIntroDialogOpen = () => {
       setIntroOpen(true);
@@ -77,20 +76,20 @@ const handleSkillDialogClose = () => {
     '4' :'Fourth Year'
   };
   let userId = null;
-if(userData && userData.token) {
-  userId = userData.token.userId;
-}
+  if(userData && userData.token) {
+    userId = userData.token.userId;
+  }
   const arr = window.location.href.split("/"); 
   const currentProfileId = arr[arr.length-1];
   useEffect(() => {
+    let endpoint = (currentProfileId === 'profile') ? profileApi.point() : profileApi.get(currentProfileId); 
     axios
-      .get(`${process.env.REACT_APP_API_ENDPOINT}/profile/${currentProfileId}`)
+      .get(endpoint)
       .then((res) => {
         const resp = res.data;
         setResponse(resp);
         setImageData(resp.imageLink)
       })
-    
   }, [changeflag])
 
   function uploadImage(e) {

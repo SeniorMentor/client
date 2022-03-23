@@ -5,6 +5,8 @@ import {useHistory} from 'react-router-dom'
 import {Typography,Grid,TextField,Button,Select,MenuItem,FormControl,InputLabel} from '@mui/material'
 
 import { makeStyles } from '@mui/styles';
+import { clientPost } from '../../utils/apiClient';
+import { authApi } from '../../utils/apis';
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
@@ -76,7 +78,7 @@ export default function ProfileForm({prevStep,handleChange,handleSubmit,values})
           }
           else
           {
-          axios.post(`${process.env.REACT_APP_API_ENDPOINT}/register`,
+          clientPost(authApi.register(),
           {
             email:values.email,
             firstName:values.firstName,

@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 import Fab from '@mui/material/Fab';
@@ -7,7 +6,9 @@ import CreateIcon from '@mui/icons-material/Create';
 import {Grid} from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
+import { clientGet } from '../../utils/apiClient';
 import { PostForm, PostWall, ActivityCard, EventsCard } from '../../components'
+import { postApi } from '../../utils/apis';
 
 const useStyles = makeStyles((theme) => ({
     leftContainer:{
@@ -38,7 +39,7 @@ export default function Home() {
   const [postCounter,setPostCounter]=useState(0);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/posts/all`)
+    clientGet(postApi.getAll())
     .then((response)=>{
       var res=response.data
       setPosts(res)
@@ -48,7 +49,6 @@ export default function Home() {
     })
   }, [postCounter])
 
-  console.log("Posts rendered");
 
   return (
     <div>

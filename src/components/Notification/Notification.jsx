@@ -1,6 +1,5 @@
 import React,{useEffect, useState, useContext} from 'react';
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 
 import UserContext from '../../context/context' 
 import ListItem from '@mui/material/ListItem';
@@ -10,6 +9,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Grid from '@mui/material/Grid';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import Box from '@mui/material/Box';
+import { clientGet, clientPut } from '../../utils/apiClient';
+import { notificationApi } from '../../utils/apis';
 
 
 const useStyles = makeStyles({
@@ -33,12 +34,8 @@ export default function Notification({occupyParts}) {
     if(userData) { 
       token = userData.tokenNumber; 
     }
-    token = localStorage.getItem('auth-token'); 
-    if(token){
-      axios.defaults.headers.common['authorization'] = token; 
-    }
     const fetchData = async () => {
-      const res = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/notifications`);
+      const res = await clientGet(notificationApi.getAll(),null,true);
       const notifications = res.data; 
       setNotifications(notifications); 
     } 
@@ -46,7 +43,7 @@ export default function Notification({occupyParts}) {
   },[]);
 
   const seenNotification = async (notificationId) => {
-    const res = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/notification/${notificationId}`);
+    const res = await clientPut(notificationApi.resource(notificationId));
     if(res.data){ 
       setNotifications(prev => prev.filter((x)=>{
         return (x._id !== notificationId)

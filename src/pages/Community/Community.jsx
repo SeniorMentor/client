@@ -4,6 +4,8 @@ import axios from 'axios'
 import {Grid,TextField,FormControl,InputLabel,Select,MenuItem} from '@mui/material'
 
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import { clientGet } from '../../utils/apiClient';
+import { profileApi } from '../../utils/apis';
 
 export default function Community() {
   const [response,setResponse] = useState([]);
@@ -47,7 +49,7 @@ export default function Community() {
   }
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_ENDPOINT}/profiles`)
+    clientGet(profileApi.all())
     .then((res)=>{
         const resp = res.data; 
         setResponse(resp)

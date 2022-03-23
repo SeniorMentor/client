@@ -4,8 +4,9 @@ import { TextField,Grid,Button,Dialog,DialogContent,DialogActions } from '@mui/m
 import { Select,MenuItem,FormControl,InputLabel } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import UserContext from '../../context/context';
+import { profileApi } from '../../utils/apis';
+import { clientPut } from '../../utils/apiClient';
 
-import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({  
     messageAndFriends:{
@@ -55,17 +56,24 @@ export default function IntroDialog(props) {
 
     const onSubmit=()=>{
 
-      axios.put(`${process.env.REACT_APP_API_ENDPOINT}/profile`,{
+      clientPut(profileApi.update(), {
         firstName:values.firstName,
         lastName:values.lastName,
         year:values.year,
         branch:values.branch,
         bio:values.bio
-        },{
-          headers:{
-              authorization: userData.tokenNumber,
-      }
-      })
+      }, true)
+      // axios.put(profileApi.update(),{
+      //   firstName:values.firstName,
+      //   lastName:values.lastName,
+      //   year:values.year,
+      //   branch:values.branch,
+      //   bio:values.bio
+      //   },{
+      //     headers:{
+      //         authorization: userData.tokenNumber,
+      // }
+      // })
       .then(()=>{
         setChangeflag(changeflag+1)
         onClose(open);
