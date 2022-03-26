@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useState, useContext, useEffect} from 'react';
 import { Link } from "react-router-dom"; 
 import clsx from 'clsx';
 
@@ -19,6 +19,8 @@ import {
 import Badge from '@mui/material/Badge';
 
 import UserContext from '../../context/context' 
+import { routes, roles } from './navdata';
+import { getRole } from '../../utils/helpers'
 
 const drawerWidth = 240;
 
@@ -131,6 +133,11 @@ export default function Navbar({open,setOpen}) {
   const classes = useStyles();
   const theme = useTheme();
   const { userData,setUserData } = useContext(UserContext);
+  const [role, setRole] = useState('guest');
+
+  useEffect(()=>{
+    setRole(getRole());
+  },[]);
 
   const logout = () => {
     setUserData({
@@ -215,54 +222,24 @@ export default function Navbar({open,setOpen}) {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
-        <List>
-            <ListItem button component={Link} to={'/'} key="0">
-              <ListItemText primary="Home" />
-            </ListItem>
-
-            {(!userData.loggedIn || !userData.token ) && (
-              <ListItem button component={Link} to={'/login'} key="1">
-              <ListItemText primary="Login" />
-            </ListItem>
-            )}
-            
-            {(!userData.loggedIn || !userData.token ) && (
-              <ListItem button component={Link} to={'/register'} key="2">
-              <ListItemText primary="Register" />
-            </ListItem>
-            )}
-            
-            {userData.loggedIn && (
-            <ListItem button component={Link} to={'/community'} key="3">
-              <ListItemText primary="Community" />
-            </ListItem>
-            )}
-
-            {userData.loggedIn && (
-            <ListItem button component={Link} to={'/chat'} key="4">
-              <ListItemText primary="Chat" />
-            </ListItem>
-            )}
-
-            {userData.loggedIn && userData.token && (
-            <ListItem button component={Link} to={`/profile/view/${userData.token.userId}`} key="5">
-              <ListItemText primary="My Profile" />
-            </ListItem>
-            )}
-
-            {userData.loggedIn && (
-            <ListItem className={classes.notifContainer} button component={Link} to={'/notifications'} key="6">
-              <ListItemText primary="Notifications" />
-            </ListItem>
-            )}
-
-            {userData.loggedIn && (
+        {
+          routes.map((item, index) => {
+              console.log(item.roles, role);
+              if(item.roles.includes(role) || item.roles.includes(roles.ALL)) {
+                return (
+                  <ListItem button component={Link} to={item.route} key={index}>
+                    <ListItemText primary={item.name} />
+                  </ListItem>
+                );
+              }
+              return null;
+          })
+        }
+        {userData.loggedIn && (
               <ListItem button onClick={logout} component={Link} to={'/'} key="7">
               <ListItemText primary="Logout" />
             </ListItem>)
-            }
-           
-        </List>
+        }
       </Drawer>
       
         

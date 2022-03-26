@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
   messageAndFriends:{
     marginTop:"1rem",
     marginBottom:"1rem",
-
   },
   skillnames:{
     margin:"3px"
@@ -69,11 +68,6 @@ const handleSkillDialogClose = () => {
   setSkillOpen(false);
 }; 
 
-  var dict = { '1' : 'First Year' , 
-    '2' : 'Second Year' , 
-    '3' :'Third Year',
-    '4' :'Fourth Year'
-  };
   let userId = null;
   if(userData && userData.token) {
     userId = userData.token.userId;
@@ -103,12 +97,11 @@ const handleSkillDialogClose = () => {
                 authorization: userData.tokenNumber
         }})
         .then((responsenew)=>{
-          // setResponse(responsenew)
+          setResponse(responsenew)
           // setImageData(responsenew.imageLink)
           setChangeflag(changeflag+1)
         })
   } 
-  // defaultUser = 'https://i.pravatar.cc/100';
   return (
     <Grid container>
       <Grid container direction="row" sx={{p:3}}>
@@ -141,18 +134,16 @@ const handleSkillDialogClose = () => {
         <Grid item xs={11} sm={7}> 
           <Grid>
             <Typography variant="h4">{response.firstName} {response.lastName}</Typography>
-            <Typography variant="subtitle1" color="textSecondary">{dict[response.year]} , {response.branch}</Typography>
+            <Typography variant="subtitle1" color="textSecondary">{response.year} , {response.branch}</Typography>
             
             <Typography variant="h6">About</Typography>
             <Typography variant="body1">{response.bio}</Typography>
           </Grid>
           <Grid className={classes.messageAndFriends}>
             {/* <Button color="primary">Add Friend</Button> */}
-            <Button  color="primary">Message</Button>
+            {((userId!==response._id)) && <Button  color="primary">Message</Button>}
             {/* <Button  color="primary" startIcon={<CheckIcon />}>Friends</Button> */}
-            {(userId===currentProfileId) && (<Button  color="primary" onClick={(()=>{setEditFlag(!editflag)})}>{editflag?"Done":"Edit"}</Button>)}
-
-
+            {(userId===response._id) && (<Button  color="primary" onClick={(()=>{setEditFlag(!editflag)})}>{editflag?"Done":"Edit Profile"}</Button>)}
           </Grid>
         </Grid>
         {editflag && (

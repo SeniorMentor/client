@@ -11,6 +11,7 @@ import { SocketContext } from '../../context/socketContext'
 import smgif from "../../assets/img/smgif.gif";
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import { useForm } from '../../utils/hook';
+import { setToken, storeUserData } from '../../utils/helpers';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -56,20 +57,21 @@ export default function Login() {
         `${process.env.REACT_APP_API_ENDPOINT}/login`,
         values
       );
-      localStorage.setItem('auth-token', loginRes.data.jwt);
+      setToken(loginRes.data.jwt);
+      storeUserData();
       const decoded=jwt_decode(loginRes.data.jwt)
       setUserData({
         token: decoded,
         loggedIn:true,
         tokenNumber:loginRes.data.jwt
       });
-      console.log(decoded);
       socket.emit("authorize-socket",{token : loginRes.data.jwt },()=>{})
       history.push('/');
 
     }
     catch(err)
     {
+      console.log(err);
       setOpen(true)
       setMessage("Email or Password entered is wrong")
 
