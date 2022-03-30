@@ -41,6 +41,11 @@ export const routes = [
         route: '/events/add',
         name: 'Add Events',
         roles: [roles.ALL]
+    },
+    {
+        route: '/analytics',
+        name: 'Analytics',
+        roles: [roles.ALL]
     }
 ]
  

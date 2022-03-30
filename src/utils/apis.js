@@ -58,3 +58,10 @@ export const authApi = {
         return  `${baseApi}/login`;
     }
 }
+
+//Events
+export const eventsApi = {
+    events : () => {
+        return `${baseApi}/events`;
+    },
+}

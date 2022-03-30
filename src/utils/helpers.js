@@ -36,9 +36,8 @@ const getUserData = () => {
     }
     return JSON.parse(res);
 };
-  
-  
-const clearUser = () => {
+   
+export const clearUser = () => {
     localStorage.removeItem('user-data');
     localStorage.removeItem('auth-token');
 };

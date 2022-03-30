@@ -1,4 +1,6 @@
 import React,{useEffect,useContext,useState} from 'react';
+import {useHistory} from 'react-router-dom';
+
 import axios from 'axios'
 
 import {Typography,Grid,Button,Chip,IconButton} from '@mui/material'
@@ -14,7 +16,7 @@ import IntroDialog from '../../components/IntroDialog/IntroDialog';
 import SkillDialog from '../../components/SkillDialog/SkillDialog'
 import { profileApi } from '../../utils/apis';
 import { clientGet } from '../../utils/apiClient';
-const API_URL = process.env.REACT_APP_API_ENDPOINT;
+import { clearUser } from '../../utils/helpers';
 
 const useStyles = makeStyles((theme) => ({
   
@@ -47,6 +49,7 @@ export default function Profile() {
   const classes = useStyles();
   const { userData } = useContext(UserContext);
   
+  const history = useHistory();
   const[response, setResponse] = useState({});
   const[changeflag,setChangeflag]=useState(0)
   const[editflag,setEditFlag]=useState(false)
@@ -79,6 +82,10 @@ const handleSkillDialogClose = () => {
     clientGet(endpoint,null,true)
       .then((res) => {
         const resp = res.data;
+        if(!resp) {
+          clearUser();
+          history.push('/login');
+        }
         setResponse(resp);
         setImageData(resp.imageLink)
       })
@@ -133,18 +140,24 @@ const handleSkillDialogClose = () => {
         
         <Grid item xs={11} sm={7}> 
           <Grid>
-            <Typography variant="h4">{response.firstName} {response.lastName}</Typography>
-            <Typography variant="subtitle1" color="textSecondary">{response.year} , {response.branch}</Typography>
+            <Typography variant="h4">{response?.firstName} {response?.lastName}</Typography>
+            <Typography variant="subtitle1" color="textSecondary">{response?.year} , {response?.branch}</Typography>
             
             <Typography variant="h6">About</Typography>
-            <Typography variant="body1">{response.bio}</Typography>
+            <Typography variant="body1">{response?.bio}</Typography>
           </Grid>
-          <Grid className={classes.messageAndFriends}>
-            {/* <Button color="primary">Add Friend</Button> */}
-            {((userId!==response._id)) && <Button  color="primary">Message</Button>}
-            {/* <Button  color="primary" startIcon={<CheckIcon />}>Friends</Button> */}
-            {(userId===response._id) && (<Button  color="primary" onClick={(()=>{setEditFlag(!editflag)})}>{editflag?"Done":"Edit Profile"}</Button>)}
-          </Grid>
+          {
+            response && 
+            (
+              <Grid className={classes.messageAndFriends}>
+                {/* <Button color="primary">Add Friend</Button> */}
+                {((userId!==response._id)) && <Button  color="primary">Message</Button>}
+                {/* <Button  color="primary" startIcon={<CheckIcon />}>Friends</Button> */}
+                {(userId===response._id) && (<Button  color="primary" onClick={(()=>{setEditFlag(!editflag)})}>{editflag?"Done":"Edit Profile"}</Button>)}
+              </Grid>
+            )
+          }
+          
         </Grid>
         {editflag && (
           <Grid item xs={1}>
