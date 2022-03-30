@@ -19,6 +19,7 @@ import ChatPersonal from './pages/ChatPersonal/ChatPersonal'
 import EachPost from './pages/EachPost/EachPost'
 import Intro from './pages/Intro/Intro'
 import AddEvent from './pages/Events/AddEvent'
+import AnalyticsDashboard from './pages/Analytics/AnalyticsDashboard';
 
 import { makeStyles } from '@mui/styles';
 
@@ -114,6 +115,7 @@ function App() {
           <Route exact path="/createPost" component={MobilePostForm} />
           <Route exact path="/post/:id" component={EachPost} />
           <Route exact path="/events/add" component={AddEvent} />
+          <Route exact path="/analytics" component={AnalyticsDashboard} />
         </div>
         {!userData.loggedIn && <Route exact path="/" component={Intro} />}
         <Route exact path="/login" component={Login} />

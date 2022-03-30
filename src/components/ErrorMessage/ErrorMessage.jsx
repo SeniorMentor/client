@@ -26,12 +26,12 @@ export default function ErrorMessage({message,open,setOpen}) {
       };
       
   return (
-        <div className={classes.root}>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-                <Alert variant="filled" onClose={handleClose} severity="error">
-                    {message}
-                </Alert>
-            </Snackbar>
-        </div>
+    <div className={classes.root}>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert variant="filled" onClose={handleClose} severity="error">
+              {message}
+          </Alert>
+      </Snackbar>
+    </div>
   );
 }
