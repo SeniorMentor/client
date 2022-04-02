@@ -9,7 +9,7 @@ import { makeStyles } from '@mui/styles';
 import UserContext from '../../context/context'
 import { SocketContext } from '../../context/socketContext' 
 import smgif from "../../assets/img/smgif.gif";
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
+import SnackbarMessage from '../../components/SnackbarMessage/SnackbarMessage'
 import { useForm } from '../../utils/hook';
 import { setToken, storeUserData } from '../../utils/helpers';
 
@@ -57,8 +57,9 @@ export default function Login() {
         `${process.env.REACT_APP_API_ENDPOINT}/login`,
         values
       );
-      setToken(loginRes.data.jwt);
-      storeUserData();
+      storeUserData({
+        token: loginRes.data.jwt
+      });
       const decoded=jwt_decode(loginRes.data.jwt)
       setUserData({
         token: decoded,
@@ -94,7 +95,7 @@ export default function Login() {
           <Typography component="h1" variant="h3" className={classes.heading}>
             Sign in
           </Typography>
-          {open && (<ErrorMessage open={open} setOpen={setOpen} message={message} />)}
+          {open && (<SnackbarMessage open={open} setOpen={setOpen} message={message} />)}
           <form className={classes.form} onSubmit={onSubmit}>
             <TextField
               variant="outlined"

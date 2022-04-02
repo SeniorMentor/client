@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import clsx from 'clsx';
 import axios from 'axios';
 
-import {Typography,Grid} from '@mui/material'
+import {Typography,Grid,Chip} from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
 import SeperatePostCard from '../../components/SeperatePostCard/SeperatePostCard';
@@ -60,7 +60,7 @@ export default function EachPost() {
       <Grid container spacing={2} justifyContent='center'>
         {post && (
           <>
-          <Grid item xs={12} sm={8}>
+        <Grid item xs={12} sm={8}>
             <SeperatePostCard post={post} postCounter={postCounter} setPostCounter={setPostCounter} />
         </Grid>
         <Grid item xs={12} sm={8}>

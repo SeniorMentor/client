@@ -4,7 +4,7 @@ export const setToken = (token) => {
     localStorage.setItem('auth-token', token);
 };
 
-const getToken = () => {
+export const getToken = () => {
     return localStorage.getItem('auth-token');
 };
 
@@ -13,10 +13,11 @@ export const setUserData = (data) => {
 };
 
 export const storeUserData = (data) => {
-    let token = getToken();
+    let token = data.token;
     if(!token) {
         return null;
     }
+    setToken(token);
     let tokenData = jwt_decode(token);
     setUserData({
         userId: tokenData.userId,

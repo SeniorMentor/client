@@ -3,7 +3,7 @@ import clsx from  'clsx';
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 
-import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar } from '@mui/material'
+import {Card,Typography,CardHeader,CardContent,CardActions,CardActionArea,Avatar,Chip } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
 import LikeButton from '../LikeButton/LikeButton'
@@ -59,6 +59,11 @@ export default function SeperatePostCard({post,postCounter,setPostCounter}) {
       />
 
       <CardContent>
+        {
+          post.tags.map((tag,idx) =>
+            <Chip label={tag.name} key={idx} variant="filled" sx={{mr:1,mb:1}}/>  
+          )
+        }
         <Typography variant="body2" color="textPrimary" component="p">
         {post.body}
         </Typography>

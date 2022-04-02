@@ -6,7 +6,7 @@ import {Avatar,Button,TextField,CircularProgress,Typography} from '@mui/material
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
 
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
+import SnackbarMessage from '../../components/SnackbarMessage/SnackbarMessage'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -121,7 +121,7 @@ export default function AccessForm({nextStep,values,handleChange}) {
           <Typography component="h1" variant="h3" className={classes.heading}>
             Sign Up
           </Typography>
-          {open && (<ErrorMessage open={open} setOpen={setOpen} message={message} />)}
+          {open && (<SnackbarMessage open={open} setOpen={setOpen} message={message} />)}
   
           <form className={classes.form}>
             <TextField

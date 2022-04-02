@@ -14,21 +14,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ErrorMessage({message,open,setOpen}) {
+export default function SnackbarMessage({message,open,setOpen,severity}) {
     const classes = useStyles();
     console.log(open);
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
           return;
         }
-    
         setOpen(false);
-      };
-      
+    };
+
   return (
     <div className={classes.root}>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert variant="filled" onClose={handleClose} severity="error">
+          <Alert variant="filled" onClose={handleClose} severity={severity ?? "error"}>
               {message}
           </Alert>
       </Snackbar>

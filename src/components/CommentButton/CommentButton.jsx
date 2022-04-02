@@ -4,7 +4,7 @@ import {Typography,IconButton} from '@mui/material'
 import ChatIcon from '@mui/icons-material/Chat';
 
 import CommentDialog from '../CommentDialog/CommentDialog'
-import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import SnackbarMessage from '../SnackbarMessage/SnackbarMessage'
 
 import UserContext from '../../context/context'
 
@@ -46,7 +46,7 @@ export default function CommentButton({data,postinfo,postCounter,setPostCounter}
         <Typography variant="subtitle2">{commentCount}</Typography>
         
       </IconButton>
-      {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
+      {openerror && (<SnackbarMessage open={openerror} setOpen={setOpenerror} message={message} />)}
       
       
         <CommentDialog open={opendialog} onClose={handleDialogClose} postid={postinfo} commentCount={commentCount} setCommentCount={setCommentCount}/>      </div>

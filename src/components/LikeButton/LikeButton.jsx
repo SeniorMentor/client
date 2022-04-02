@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import {Typography,IconButton } from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
-import ErrorMessage from '../ErrorMessage/ErrorMessage'
+import SnackbarMessage from '../SnackbarMessage/SnackbarMessage'
 import UserContext from '../../context/context'
 
 
@@ -78,7 +78,7 @@ export default function LikeButton({postinfo,data,postCounter,setPostCounter}) {
         <Typography variant="subtitle2">{likeCount}</Typography>
 
       </IconButton>
-      {openerror && (<ErrorMessage open={openerror} setOpen={setOpenerror} message={message} />)}
+      {openerror && (<SnackbarMessage open={openerror} setOpen={setOpenerror} message={message} />)}
     </div>
   );
 }

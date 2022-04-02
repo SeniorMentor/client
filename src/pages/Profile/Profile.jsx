@@ -3,9 +3,11 @@ import {useHistory} from 'react-router-dom';
 
 import axios from 'axios'
 
-import {Typography,Grid,Button,Chip,IconButton} from '@mui/material'
+import {Typography,Grid,Button,Chip,IconButton,CardActionArea,CardContent,Card} from '@mui/material'
 import CreateIcon from '@mui/icons-material/Create';
 import { makeStyles } from '@mui/styles';
+
+
 
 import defaultUser from '../../assets/img/defaultUser.jpg'
 
@@ -141,10 +143,35 @@ const handleSkillDialogClose = () => {
         <Grid item xs={11} sm={7}> 
           <Grid>
             <Typography variant="h4">{response?.firstName} {response?.lastName}</Typography>
-            <Typography variant="subtitle1" color="textSecondary">{response?.year} , {response?.branch}</Typography>
+            {
+              response.role === 'student' &&
+              <Typography variant="subtitle1" color="textSecondary">{response?.year} , {response?.branch}</Typography>
+            }
             
-            <Typography variant="h6">About</Typography>
-            <Typography variant="body1">{response?.bio}</Typography>
+            <Card sx={{mt:2}}>
+              <CardActionArea>
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    About
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {response?.bio}
+                  </Typography>
+                  <Chip
+                    sx={{mt:2,mr:1}}
+                    color="success"
+                    label={response?.college?.name}
+                    variant="filled"
+                  />
+                  <Chip
+                    sx={{mt:2}}
+                    color="secondary"
+                    label={response?.role}
+                    variant="filled"
+                  />
+                </CardContent>
+              </CardActionArea>
+            </Card>
           </Grid>
           {
             response && 
@@ -170,31 +197,39 @@ const handleSkillDialogClose = () => {
         
       </Grid>
       <Grid container  direction="row" sx={{p:3}}>
-        <Grid item xs={12} sm={3}>
-            <Typography variant="h6">Skills 
-            
-
-            </Typography>
-            
-            {response.skills && response.skills.length!==0 && response.skills.map((skill,index)=>(
-              <Chip className={classes.skillnames} key={index} color="primary" label={skill.skill}/>
-           ))}
-           
-          
-        </Grid>
-        <Grid item sm={1}>
-        {editflag && (
-          <Grid item xs={1}>
-            <IconButton aria-label="Comment" onClick={handleSkillDialogOpen} size="large">
-              <CreateIcon />
-            </IconButton>
+        {
+          response.role === 'student' &&
+          <Grid item xs={12} sm={3}>
+            <Typography variant="h6">Skills</Typography>
+            {
+              response.skills?.map((skill,index)=>(
+                <Chip className={classes.skillnames} key={index} color="primary" label={skill.skill}/>
+              ))
+            }
           </Grid>
+        }
+        
+        
+        { editflag && 
+          (
+            <Grid item sm={1}>
+              <Grid item xs={1}>
+                <IconButton aria-label="Comment" onClick={handleSkillDialogOpen} size="large">
+                  <CreateIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          )
+        }
+        
 
-        )}
-        </Grid>
-        <Grid  className={classes.secondRow} item xs={12} sm={8}>
-          <UserInfoMenu editflag={editflag} changeflag={changeflag} setChangeflag={setChangeflag} data={response}/>      
-        </Grid>
+        {
+          response.role === "student" && 
+          <Grid  className={classes.secondRow} item xs={12} sm={8}>
+            <UserInfoMenu editflag={editflag} changeflag={changeflag} setChangeflag={setChangeflag} data={response}/>      
+          </Grid>
+        }
+        
       </Grid>
       
       <IntroDialog data={response} open={introOpen} changeflag={changeflag} setChangeflag={setChangeflag} onClose={handleIntroDialogClose}/>

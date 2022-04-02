@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { getToken } = require('./helpers');
 
 let token = null;
 
@@ -24,6 +25,6 @@ export const clientPut = async(api, body, withToken) => {
 };
 
 export const setToken = () => {
-   token = token ??  localStorage.getItem('auth-token');
+   token = getToken();
    axios.defaults.headers.common['authorization'] = token; 
 } 
