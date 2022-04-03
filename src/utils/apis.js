@@ -64,4 +64,27 @@ export const eventsApi = {
     events : () => {
         return `${baseApi}/events`;
     },
+    particularEvent: (id) => {
+        return `${baseApi}/events/${id}`
+    }
+}
+
+//Analytics
+export const analyticsApi = {
+    events: () => {
+        return `${baseApi}/analytics/events`;
+    },
+    particularEvent: (id) => {
+        return `${baseApi}/analytics/events/${id}`;
+    }
+}
+
+//Public 
+export const publicApi = {
+    tags: () => {
+        return `${baseApi}/public/tags`;
+    },
+    colleges: () => {
+        return `${baseApi}/public/colleges`;
+    }
 }

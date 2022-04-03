@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import clsx from 'clsx';
 import axios from 'axios';
 
-import {Typography,Grid,Chip} from '@mui/material'
+import {Typography,Grid} from '@mui/material'
 import { makeStyles } from '@mui/styles';
 
 import SeperatePostCard from '../../components/SeperatePostCard/SeperatePostCard';
@@ -67,12 +67,9 @@ export default function EachPost() {
        <InfoBar post={post} />
        </Grid>
        <Grid item xs={12} sm={8}>
-       <Typography id="comments" className={clsx(classes.root)} variant="h5">Comments</Typography>
-       <CommentList post={post} />
-
+        <Typography id="comments" className={clsx(classes.root)} variant="h5">Comments</Typography>
+        <CommentList post={post} />
        </Grid>
-
-          
           </>
         )}
        

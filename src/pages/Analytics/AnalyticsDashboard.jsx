@@ -1,27 +1,43 @@
-import React from "react";
-import { PieChart, Pie, Legend, Tooltip } from "recharts";
+import React from 'react';
+import { PieChart, Pie, Tooltip } from "recharts";
 
-const data01 = [
-  { name: "Machine Learning", value: 20, fill:"#0088FE" },
-  { name: "Programming", value: 30, fill:"#00C49F" },
-  { name: "Web Development", value: 50, fill:"#FFBB28" },
-  { name: "Robotics", value: 17, fill:"#FF8042" }
-];
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 
-export default function App() {
+import EventAnalytics from './EventAnalytics'
+
+ 
+export default function LabTabs() {
+  const [value, setValue] = React.useState('1');
+  
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <PieChart width={1000} height={400}>
-      <Pie
-        dataKey="value"
-        isAnimationActive={false}
-        data={data01}
-        cx={200}
-        cy={200}
-        outerRadius={80}
-        fill="#8884d8"
-        label
-      />
-      <Tooltip />
-    </PieChart>
+    <Box sx={{ width: '100%', typography: 'body1' }} textAlign="center">
+      <TabContext value={value}>
+        <Box sx={{ml:2, borderBottom: 1, borderColor: 'divider' }}>
+          <TabList 
+          onChange={handleChange} 
+          aria-label="lab API tabs example"
+          textColor="secondary"
+          indicatorColor="secondary"
+          >
+            <Tab label="Events" value="1" />
+            <Tab label="Posts" value="2" />
+            <Tab label="Misc" value="3" />
+          </TabList>
+        </Box>
+        <TabPanel value="1">
+          <EventAnalytics />
+        </TabPanel>
+        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="3">Item Three</TabPanel>
+      </TabContext>
+    </Box>
   );
 }
