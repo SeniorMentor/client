@@ -76,6 +76,9 @@ export const analyticsApi = {
     },
     particularEvent: (id) => {
         return `${baseApi}/analytics/events/${id}`;
+    },
+    posts: () => {
+        return `${baseApi}/analytics/posts`;
     }
 }
 

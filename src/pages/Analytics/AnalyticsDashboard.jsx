@@ -8,6 +8,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 
 import EventAnalytics from './EventAnalytics'
+import PostAnalytics from "./PostAnalytics";
 
  
 export default function LabTabs() {
@@ -35,7 +36,9 @@ export default function LabTabs() {
         <TabPanel value="1">
           <EventAnalytics />
         </TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
+        <TabPanel value="2">
+          <PostAnalytics />
+        </TabPanel>
         <TabPanel value="3">Item Three</TabPanel>
       </TabContext>
     </Box>
