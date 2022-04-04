@@ -8,7 +8,7 @@ import { makeStyles } from '@mui/styles';
 
 import { clientGet } from '../../utils/apiClient';
 import { PostForm, PostWall, ActivityCard, EventsCard } from '../../components'
-import { postApi } from '../../utils/apis';
+import { postApi,eventsApi } from '../../utils/apis';
 
 const useStyles = makeStyles((theme) => ({
     leftContainer:{
@@ -35,7 +35,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const classes = useStyles();
-  const [posts,setPosts] = useState([])
+  const [posts, setPosts] = useState([])
+  const [events,setEvents] = useState([])
+
   const [postCounter,setPostCounter]=useState(0);
 
   useEffect(() => {
@@ -46,6 +48,15 @@ export default function Home() {
     })
     .catch((err)=>{
       console.log(err);
+    })
+
+    clientGet(eventsApi.events())
+      .then((response) => {
+        console.log(response)
+        setEvents(response.data)
+      })
+      .catch((err) => {
+      console.log(err)
     })
   }, [postCounter])
 
@@ -65,7 +76,7 @@ export default function Home() {
               </Grid>
           </Grid>
           <Grid item className={classes.rightContainer} md={4} lg={3}>
-            <EventsCard />
+          <EventsCard events={events}/>
           </Grid>
         </Grid> 
         <Link to="/createPost">

@@ -27,7 +27,8 @@ const sampleEvents = [
   },
 ];
 
-export default function ActivityCard() {
+export default function ActivityCard(props) {
+  const{events}=props
     const classes = useStyles();
 
     return (
@@ -37,9 +38,10 @@ export default function ActivityCard() {
         <CardActions>
           <Notification occupyParts={12}/> 
         </CardActions>
-        {sampleEvents.length ? (
-          sampleEvents.map((eachEvent)=>(
-            <EachEventCard data={eachEvent} />
+        {events.length ? (
+          events.map((eachEvent, i) => (
+            i<2 ?
+              <EachEventCard data={eachEvent} /> : null
           ))
         ):null}
 
