@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
     textLeft: {
         textAlign:'left', 
-        backgroundColor: '#454545',
+        backgroundColor: theme.palette.primary.dark,
         padding: theme.spacing(1,2),
         marginLeft: theme.spacing(0),
         borderRadius: theme.spacing(1,2,0,1)

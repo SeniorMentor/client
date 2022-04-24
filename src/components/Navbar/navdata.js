@@ -1,5 +1,5 @@
 export const roles = {
-    COLLEGE_ADMIN: 'college-admin',
+    COLLEGE_ADMIN: 'college_admin',
     ADMIN: 'admin',
     STUDENT: 'student',
     GUEST: 'guest', // logged out user
@@ -27,11 +27,6 @@ export const routes = [
         name: 'Community',
         roles: [roles.ALL]
     },
-    {
-        route: '/profile',
-        name: 'Profile',
-        roles: [roles.COLLEGE_ADMIN, roles.STUDENT]
-    },
     {   
         route: '/notifications',
         name: 'Notifications',
@@ -40,12 +35,11 @@ export const routes = [
     {
         route: '/events/add',
         name: 'Add Events',
-        roles: [roles.ALL]
+        roles: [roles.COLLEGE_ADMIN]
     },
     {
         route: '/analytics',
         name: 'Analytics',
-        roles: [roles.ALL]
+        roles: [roles.COLLEGE_ADMIN]
     }
 ]
- 

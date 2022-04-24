@@ -8,6 +8,7 @@ import { makeStyles } from '@mui/styles';
 
 import LikeButton from '../LikeButton/LikeButton'
 import CommentButton from '../CommentButton/CommentButton'
+import {colors} from "../../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
     
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight:150,
         borderRadius:"20px",
         // borderBottom:"3px solid #3f51b5",
-        // backgroundColor:"#f5f6fa"
+        // backgroundColor: colors.primary
         
     },
     likeIcon:{
@@ -44,7 +45,7 @@ export default function PostCard({post}) {
     var postFullname=post.userId.firstName+' '+post.userId.lastName;
     
     return (
-    <Card id={post._id} className={clsx(classes.card)}>
+    <Card id={post._id} className={clsx(classes.card)} >
     <CardActionArea component={Link} to={`/post/${post._id}`}>
 
     <CardHeader

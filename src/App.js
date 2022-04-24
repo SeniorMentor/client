@@ -12,7 +12,7 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import Profile from './pages/Profile/Profile'
 import Community from './pages/Community/Community'
-import NotificationPage from './pages/NotificationPage/NotificationPage'
+import EventsPage from './pages/EventsPage/EventsPage'
 import MobilePostForm from './pages/MobilePostForm/MobilePostForm'
 import Chat from './pages/Chat/Chat' 
 import ChatPersonal from './pages/ChatPersonal/ChatPersonal' 
@@ -111,7 +111,7 @@ function App() {
           <Route exact path="/community" component={Community} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/profile/view/:id" component={Profile} />
-          <Route exact path="/notifications" component={NotificationPage} />
+          <Route exact path="/events" component={EventsPage} />
           <Route exact path="/createPost" component={MobilePostForm} />
           <Route exact path="/post/:id" component={EachPost} />
           <Route exact path="/events/add" component={AddEvent} />

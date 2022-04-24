@@ -1,6 +1,4 @@
 import React from 'react';
-import { PieChart, Pie, Tooltip } from "recharts";
-
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -39,7 +37,7 @@ export default function LabTabs() {
         <TabPanel value="2">
           <PostAnalytics />
         </TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
+        <TabPanel value="3"> Work in Progress </TabPanel>
       </TabContext>
     </Box>
   );

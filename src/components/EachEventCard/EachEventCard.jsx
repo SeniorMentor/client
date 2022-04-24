@@ -20,6 +20,7 @@ import UserContext from "../../context/context";
 import moment from "moment";
 import { clientGet, clientPost } from "../../utils/apiClient";
 import { eventsApi } from "../../utils/apis";
+import {colors} from "../../utils/constants";
 
 export default function EachEventCard(props) {
   const { data } = props;
@@ -39,30 +40,30 @@ export default function EachEventCard(props) {
         <div style={{ margin: 10 }}>
           <Typography
             variant="h6"
-            component="p"
+            component="div"
             style={{ paddingBottom: "10px" }}
           >
             {data.title}
           </Typography>
+          <Divider />
           <p>{data.body}</p>
 
           <Chip
             sx={{ mt: 2, mr: 1 }}
-            color="primary"
+            color="success"
             label={moment(data.dateTime).format("MMM Do YYYY")}
             variant="filled"
           />
           <Chip
             sx={{ mt: 2, mr: 1 }}
-            color="primary"
+            color="success"
             label={moment(data.dateTime).format('LT')}
             variant="filled"
           />
 
           <Chip
-            sx={{ mt: 2, mr: 1 }}
-            color="primary"
-            label={data.college}
+            sx={{ mt: 2, mr: 1, background: colors.themeMain }}
+            label={data.college.name}
             variant="filled"
           />
 
@@ -70,7 +71,7 @@ export default function EachEventCard(props) {
             <Chip
               sx={{ mt: 2, mr: 1 }}
               color={isGoing ? "success" : "primary"}
-              label="Going"
+              label="Going ?"
               variant={isGoing ? "filled" : "outlined"}
             />
           </div>

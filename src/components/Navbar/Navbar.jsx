@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   appBar: {
+    background: theme.palette.primary.main,
     ...theme.typography.fontPrime,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
   },
   drawerPaper: {
-    background: theme.palette.primary.main,
+    background: theme.palette.primary.dark,
     width: drawerWidth,
   },
   drawerHeader: {

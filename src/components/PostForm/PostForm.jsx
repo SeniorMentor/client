@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
     },
     postButton:{
         width:"15%",
-       
-        borderRadius:"25px"
+        borderRadius:"25px",
+        background: theme.palette.primary.main
     },
     uploadButton:{
         fontSize:"large"
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function PostForm({postCounter,setPostCounter}) {
+export default function PostForm({setPostCounter}) {
 
     const { userData } = useContext(UserContext);
     const[imageData,setImageData]=useState('')
@@ -91,8 +91,7 @@ export default function PostForm({postCounter,setPostCounter}) {
                 authorization: userData.tokenNumber
         }})
         .then((response)=>{
-            setPostCounter(postCounter+1)
-        
+            setPostCounter((prev) => (prev ?? 0) + 1)
             values.body=''
             setpreviewFile(null)
             setImageData('')

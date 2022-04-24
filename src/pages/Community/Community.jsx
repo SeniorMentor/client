@@ -4,6 +4,7 @@ import {Grid,TextField,FormControl,InputLabel,Select,MenuItem} from '@mui/materi
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 import { clientGet } from '../../utils/apiClient';
 import { profileApi } from '../../utils/apis';
+import {colors} from "../../utils/constants";
 
 export default function Community() {
   const [response,setResponse] = useState([]);
@@ -59,7 +60,7 @@ export default function Community() {
 }, []);
   return (
     <div>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} sx={{background:colors.primaryLight}}>
         <Grid item xs={12} sm={4}>
         <TextField
             variant="outlined"

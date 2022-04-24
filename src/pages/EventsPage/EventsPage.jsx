@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Notification from "../../components/Notification/Notification";
 import { makeStyles } from "@mui/styles";
 import { clientGet } from "../../utils/apiClient";
 import { eventsApi } from "../../utils/apis";
-import CloseIcon from "@mui/icons-material/Close";
-import moment from "moment";
-import { Button } from "@mui/material";
 import EachEventCard from "./EachEventCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NotificationPage() {
+export default function EventsPage() {
   const [events, setEvents] = useState([]);
 
 

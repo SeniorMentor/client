@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       height : "86vh"
     }, 
     infobar : {
-      backgroundColor : "#424242",
+      backgroundColor : theme.palette.primary.dark,
       padding : theme.spacing(2),
       top : theme.spacing(0),
       textAlign : 'center',

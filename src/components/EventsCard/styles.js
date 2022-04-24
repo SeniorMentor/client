@@ -1,4 +1,5 @@
 import { makeStyles } from '@mui/styles';
+import { colors } from "../../utils/constants";
 
 export default makeStyles(() => ({
     card:{
@@ -6,6 +7,6 @@ export default makeStyles(() => ({
         minHeight:550,
         borderRadius:"25px",
         textAlign:"center",
-        // backgroundColor:"#f5f6fa"
-        },
+        backgroundColor: colors.primary
+    },
 }));

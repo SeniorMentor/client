@@ -6,4 +6,4 @@ export { default as ChatLeft } from './ChatLeft/ChatLeft';
 export { default as ChatOnly } from './ChatOnly/ChatOnly';
 export { default as Navbar } from './Navbar/Navbar';
 export { default as EventsCard } from './EventsCard/EventsCard';
-
+export { default as Filter} from './Filter/Filter';

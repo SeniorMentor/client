@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import moment from "moment";
-import { Button } from "@mui/material";
 import { clientPost } from "../../utils/apiClient";
 import { eventsApi } from "../../utils/apis";
 import DoneIcon from "@mui/icons-material/Done";
+import {
+  Chip,
+  Button
+} from "@mui/material";
+import * as constants from "constants";
+import {colors} from "../../utils/constants";
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -17,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     borderTopRightRadius: 10,
     borderWidth: 0,
     marginTop: 0,
-    backgroundColor: "#1876D1",
+    backgroundColor: colors.themeMain,
     paddingTop: 2,
     paddingLeft: 25,
     color: "#ffffff",
@@ -80,15 +85,33 @@ export default function EachEventCard(props) {
         </div>
         <div className={classes.footer}>
           <div>
-            <p>Date: {moment(eachEvent.dateTime).format("MMM Do YYYY")}</p>
-            <p>Time : {moment(eachEvent.dateTime).format("LT")}</p>
+            <div>
+              <Chip
+                sx={{ mt: 2, mr: 1 }}
+                color="success"
+                label={moment(eachEvent.dateTime).format("MMM Do YYYY")}
+                variant="filled"
+              />
+              <Chip
+                sx={{ mt: 2, mr: 1 }}
+                color="success"
+                label={moment(eachEvent.dateTime).format('LT')}
+                variant="filled"
+              />
+              <Chip
+                sx={{ mt: 2, mr: 1 }}
+                color="secondary"
+                label={eachEvent?.college?.name}
+                variant="filled"
+              />
+            </div>
             <Button
               style={{ marginTop: 10,marginBottom:10 }}
               variant="outlined"
               onClick={handleUserRegisterClick}
               startIcon={isGoing ? <DoneIcon /> : null}
             >
-              {isGoing ? "Registered" : "Register"}
+              {isGoing ? "Registered" : "Going"}
             </Button>
           </div>
         </div>

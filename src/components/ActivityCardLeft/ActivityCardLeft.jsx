@@ -10,7 +10,7 @@ export default function ActivityCard() {
     const classes = useStyles();
 
     return (
-      <Card className={classes.card}>
+      <Card className={classes.card} style={{background:"#b5c1c9"}}>
         <CardHeader title="Activity Tab"/>
         <Divider />
         <CardActions>

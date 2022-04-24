@@ -8,26 +8,7 @@ import Notification from '../Notification/Notification';
 import EachEventCard from '../EachEventCard/EachEventCard';
 
 
-const sampleEvents = [
-  {
-    eventName: "Event Name 1",
-    eventDescription: "Event description 1",
-    date: "29 March",
-    time: "time 1",
-    collegeName: "Fr. Conceicao Rodrigues College of Engineering",
-    going: false,
-  },
-  {
-    eventName: "Event Name 2",
-    eventDescription: "Event description 2",
-    date: "31 March",
-    time: "time 2",
-    collegeName: "Fr. Conceicao Rodrigues College of Engineering",
-    going: true,
-  },
-];
-
-export default function ActivityCard(props) {
+export default function EventsCard(props) {
   const{events}=props
     const classes = useStyles();
 
@@ -45,7 +26,7 @@ export default function ActivityCard(props) {
           ))
         ):null}
 
-        <Link to="/notifications">
+        <Link to="/events">
           <Button size="small">Show More</Button>
         </Link>
       </Card>
