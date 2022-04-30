@@ -10,6 +10,7 @@ import { makeStyles } from '@mui/styles';
 import UserContext from '../../context/context'
 
 import axios from 'axios'
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -138,7 +139,6 @@ const handleendDateChange = (date) => {
                 required
                 label="Designation"
                 name="designation"
-                autoFocus
                 value={values.firstName}
                 onChange={onChange}
                 />
@@ -154,44 +154,37 @@ const handleendDateChange = (date) => {
                 required
                 label="Description"
                 name="description"
-                autoFocus
                 value={values.lastName}
                 onChange={onChange}
                 />
                 
             </Grid>
-          <Grid item xs={12} sm={6}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <KeyboardDatePicker
-          fullWidth
-          margin="normal"
-          id="date-picker-dialog"
-          label="Start Date"
-          format="MM/dd/yyyy"
-          value={startDate}
-          onChange={handlestartDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-          </LocalizationProvider>
-            </Grid> <Grid item xs={12} sm={6}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <KeyboardDatePicker
-          fullWidth
-          margin="normal"
-          id="date-picker-dialog"
-          label="End Date"
-          format="MM/dd/yyyy"
-          value={endDate}
-          onChange={handleendDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-          </LocalizationProvider>
-          
-              
+            <Grid item xs={12} sm={6}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DesktopDatePicker
+                  style={{display:"inline", marginRight:"5px"}}
+                  label="Start Date"
+                  inputFormat="MM/dd/yyyy"
+                  value={startDate}
+                  onChange={handlestartDateChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DesktopDatePicker
+                  style={{display:"inline", marginRight:"5px"}}
+                  label="End Date"
+                  inputFormat="MM/dd/yyyy"
+                  value={endDate}
+                  onChange={handleendDateChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+
             </Grid>
             
         </Grid>

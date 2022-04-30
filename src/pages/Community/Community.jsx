@@ -59,7 +59,7 @@ export default function Community() {
     //getItems().then(data => setItems(data));
 }, []);
   return (
-    <div>
+    <div xs={{pl:20}}>
       <Grid container spacing={1} sx={{background:colors.primaryLight}}>
         <Grid item xs={12} sm={4}>
         <TextField

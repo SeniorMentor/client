@@ -16,6 +16,8 @@ import {
   Notifications as NotificationsIcon,
   AccountCircle
 } from '@mui/icons-material'
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
+
 import Badge from '@mui/material/Badge';
 
 import UserContext from '../../context/context' 
@@ -191,6 +193,16 @@ export default function Navbar({open,setOpen}) {
                 
               </Box>
               <Box display="flex" mr={0.5}>
+                <IconButton
+                  aria-label="show chat "
+                  color="inherit"
+                  component={Link}
+                  to="/chat"
+                  size="large">
+                  <Badge badgeContent={'+'} color="secondary">
+                    <MarkUnreadChatAltIcon />
+                  </Badge>
+                </IconButton>
                 <IconButton
                   aria-label="show new notifications"
                   color="inherit"

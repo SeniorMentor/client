@@ -3,13 +3,14 @@ import axios from 'axios'
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import KeyboardDatePicker from '@mui/lab/DatePicker';
+import { KeyboardDatePicker } from '@material-ui/pickers'
 
 import { TextField,Grid,Button,Dialog,DialogContent,DialogActions} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 
 import UserContext from '../../context/context'
+import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
 const useStyles = makeStyles((theme) => ({
   
@@ -110,7 +111,7 @@ export default function ProjectCardDialog(props) {
   const handlestartDateChange = (date) => {
     setStartDate(date);
   };
-  const handleendDateChange = (date) => {
+  const handleEndDateChange = (date) => {
     setEndDate(date);
   };
 
@@ -161,48 +162,56 @@ export default function ProjectCardDialog(props) {
                 required
                 label="Description"
                 name="description"
-                autoFocus
                 value={values.description}
                 onChange={onChange}
                 />
             </Grid>
           <Grid item xs={12} sm={6}>
-          <LocalizationProvider utils={AdapterDateFns}>
-          <KeyboardDatePicker
-          fullWidth
-          margin="normal"
-          name="startDate"
-          label="Start Date"
-          format="MM/dd/yyyy"
-          value={startDate}
-          onChange={handlestartDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DesktopDatePicker
+              style={{display:"inline", marginRight:"5px"}}
+              label="Start Date"
+              inputFormat="MM/dd/yyyy"
+              value={startDate}
+              onChange={handlestartDateChange}
+              renderInput={(params) => <TextField {...params} />}
+            />
           </LocalizationProvider>
-          
-              
+
             </Grid>
+
             <Grid item xs={12} sm={6}>
-          <LocalizationProvider utils={AdapterDateFns}>
-          <KeyboardDatePicker
-          fullWidth
-          margin="normal"
-          label="End Date"
-          format="MM/dd/yyyy"
-          name="endDate"
-          value={endDate}
-          onChange={handleendDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-          </LocalizationProvider>
-          
-              
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <DesktopDatePicker
+                  style={{display:"inline", marginRight:"5px"}}
+                  label="End Date"
+                  inputFormat="MM/dd/yyyy"
+                  value={endDate}
+                  onChange={handleEndDateChange}
+                  renderInput={(params) => <TextField {...params} />}
+                />
+              </LocalizationProvider>
+
             </Grid>
-            
+        {/*    <Grid item xs={12} sm={6}>*/}
+        {/*  <LocalizationProvider utils={AdapterDateFns}>*/}
+        {/*  <KeyboardDatePicker*/}
+        {/*  fullWidth*/}
+        {/*  margin="normal"*/}
+        {/*  label="End Date"*/}
+        {/*  format="MM/dd/yyyy"*/}
+        {/*  name="endDate"*/}
+        {/*  value={endDate}*/}
+        {/*  onChange={handleEndDateChange}*/}
+        {/*  KeyboardButtonProps={{*/}
+        {/*    'aria-label': 'change date',*/}
+        {/*  }}*/}
+        {/*/>*/}
+        {/*  </LocalizationProvider>*/}
+        {/*  */}
+        {/*      */}
+        {/*    </Grid>*/}
+        {/*    */}
         </Grid>
       
           
