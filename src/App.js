@@ -20,6 +20,7 @@ import EachPost from './pages/EachPost/EachPost'
 import Intro from './pages/Intro/Intro'
 import AddEvent from './pages/Events/AddEvent'
 import AnalyticsDashboard from './pages/Analytics/AnalyticsDashboard';
+import NotificationPage from "./pages/NotificationPage/NotificationPage";
 
 import { makeStyles } from '@mui/styles';
 
@@ -116,6 +117,7 @@ function App() {
           <Route exact path="/post/:id" component={EachPost} />
           <Route exact path="/events/add" component={AddEvent} />
           <Route exact path="/analytics" component={AnalyticsDashboard} />
+          <Route exact path="/notifications" component={NotificationPage} />
         </div>
         {!userData.loggedIn && <Route exact path="/" component={Intro} />}
         <Route exact path="/login" component={Login} />

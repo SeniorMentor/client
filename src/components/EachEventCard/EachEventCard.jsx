@@ -71,7 +71,7 @@ export default function EachEventCard(props) {
             <Chip
               sx={{ mt: 2, mr: 1 }}
               color={isGoing ? "success" : "primary"}
-              label="Going ?"
+              label="Attending"
               variant={isGoing ? "filled" : "outlined"}
             />
           </div>

@@ -16,9 +16,6 @@ export default function EventsCard(props) {
       <Card className={classes.card}>
         <CardHeader title="Events"/>
         <Divider />
-        <CardActions>
-          <Notification occupyParts={12}/> 
-        </CardActions>
         {events.length ? (
           events.map((eachEvent, i) => (
             i<2 ?

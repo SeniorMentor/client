@@ -111,7 +111,7 @@ export default function EachEventCard(props) {
               onClick={handleUserRegisterClick}
               startIcon={isGoing ? <DoneIcon /> : null}
             >
-              {isGoing ? "Registered" : "Going"}
+              {isGoing ? "Registered" : "Attending"}
             </Button>
           </div>
         </div>
